@@ -160,3 +160,48 @@ function sessionTerminee(distorsion: string, questionIds: string[], utile: Recor
     reponses: questionIds.map((id) => ({ questionId: id, texte: 'r', utile: utile[id] ?? null, passee: false })),
   };
 }
+
+describe('banque colère', () => {
+  const possibles = distorsionsDe('colere').map((d) => d.id);
+
+  it('propose les 6 distorsions de la colère', () => {
+    expect(possibles.sort()).toEqual(
+      [
+        'consequences_reaction',
+        'generalisation_etiquetage',
+        'injustice_regles_personnelles',
+        'lecture_pensee_intentions',
+        'raisonnement_emotionnel',
+        'tout_ou_rien',
+      ].sort(),
+    );
+  });
+
+  it('ne pioche que des questions de colère, avec départ, preuves et clôture', () => {
+    for (const d of possibles) {
+      for (let seed = 1; seed < 20; seed++) {
+        const { questionIds } = selectionnerQuestions({
+          questions: QUESTIONS,
+          problematique: 'colere',
+          distorsion: d,
+          distorsionsPossibles: possibles,
+          historique: [],
+          aleatoire: graine(seed),
+        });
+        const qs = questionIds.map((id) => question(id)!);
+        expect(qs.every((q) => q.problematique === 'colere')).toBe(true);
+        expect(qs[0].categorie).toBe('depart');
+        expect(qs[qs.length - 1].categorie).toBe('cloture');
+        expect(qs.length).toBeGreaterThanOrEqual(4);
+        expect(qs.some((q) => q.preuves)).toBe(true);
+      }
+    }
+  });
+
+  it('suggère une distorsion de colère à partir de la pensée', () => {
+    const distorsions = distorsionsDe('colere');
+    expect(suggererDistorsion("Il a fait exprès de m'ignorer pour m'énerver", distorsions)).toBe('lecture_pensee_intentions');
+    expect(suggererDistorsion("C'est injuste, ça ne se fait pas", distorsions)).toBe('injustice_regles_personnelles');
+    expect(suggererDistorsion('Je vais lui dire ses quatre vérités, il va voir', distorsions)).toBe('consequences_reaction');
+  });
+});

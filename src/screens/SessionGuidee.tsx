@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Respiration } from '../components/Apaisement';
 import { AvantApres, Curseur, Entete, Progression, Puces } from '../components/ui';
-import { DISTORSIONS, EMOTIONS, GABARITS, PROBLEMATIQUES, QUESTIONS, VERIFICATION, distorsion, distorsionsDe, question } from '../lib/contenu';
+import { DISTORSIONS, EMOTIONS, EMOTIONS_VERS_PROBLEMATIQUE, GABARITS, PROBLEMATIQUES, QUESTIONS, VERIFICATION, distorsion, distorsionsDe, question } from '../lib/contenu';
 import { detecterCrise } from '../lib/crise';
 import { historique } from '../lib/db';
 import { SEUIL_APAISEMENT, selectionnerQuestions, suggererDistorsion, suggererProfessionnel } from '../lib/moteur';
@@ -72,6 +72,17 @@ type PropsEtape = PropsSession & {
 
 function EtapeSituation({ session, maj, allerA, onQuitter, onSos, avancerSiSansCrise }: PropsEtape) {
   const pret = session.situation.trim() !== '' && session.emotion.libelle !== '';
+
+  /** Changer de problématique invalide les questions et la distorsion déjà choisies. */
+  const problematiqueChangee = (problematique: string): Partial<Session> =>
+    problematique === session.problematique
+      ? {}
+      : { problematique, questionIds: [], reponses: [], indexQuestion: 0, pensee: { ...session.pensee, distorsions: [] } };
+
+  const choisirEmotion = (libelle: string) => {
+    const proposee = PROBLEMATIQUES.find((p) => p.id === EMOTIONS_VERS_PROBLEMATIQUE[libelle] && p.active);
+    maj({ emotion: { ...session.emotion, libelle }, ...(proposee ? problematiqueChangee(proposee.id) : {}) });
+  };
   return (
     <div className="page">
       <Entete titre="Nouvelle pensée" onRetour={onQuitter} onSos={onSos} />
@@ -91,7 +102,7 @@ function EtapeSituation({ session, maj, allerA, onQuitter, onSos, avancerSiSansC
           <Puces
             options={EMOTIONS.map((e) => ({ valeur: e, libelle: e }))}
             valeur={session.emotion.libelle || null}
-            onChange={(libelle) => maj({ emotion: { ...session.emotion, libelle } })}
+            onChange={choisirEmotion}
           />
         </div>
 
@@ -111,7 +122,7 @@ function EtapeSituation({ session, maj, allerA, onQuitter, onSos, avancerSiSansC
               desactive: !p.active,
             }))}
             valeur={session.problematique}
-            onChange={(problematique) => maj({ problematique, questionIds: [] })}
+            onChange={(problematique) => maj(problematiqueChangee(problematique))}
           />
         </div>
       </div>
@@ -351,8 +362,11 @@ function EtapeAlternative({ session, maj, allerA, onSos, avancerSiSansCrise }: P
   const reponsesEcrites = session.reponses.filter((r) => r.texte.trim() !== '');
 
   const utiliserGabarit = (g: string) => {
-    const nomDistorsion = distorsion(session.pensee.distorsions[0])?.libelle.toLowerCase();
-    const texte = nomDistorsion ? g.replace('[distorsion identifiée]', nomDistorsion) : g;
+    const nomDistorsion = distorsion(session.pensee.distorsions[0])?.libelle;
+    // « vient de [distorsion identifiée] » → « vient du piège « Catastrophisme » ».
+    const texte = nomDistorsion
+      ? g.replace('de [distorsion identifiée]', `du piège « ${nomDistorsion} »`).replace('[distorsion identifiée]', `« ${nomDistorsion} »`)
+      : g;
     maj({ penseeAlternative: { ...alt, texte: alt.texte ? `${alt.texte}\n${texte}` : texte } });
   };
 

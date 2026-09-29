@@ -3,6 +3,8 @@ import donnees from '../content/questions.json';
 import type { Distorsion, Problematique, Question } from './types';
 
 export const EMOTIONS: string[] = donnees.emotions;
+/** Problématique proposée automatiquement quand je choisis une émotion (modifiable ensuite). */
+export const EMOTIONS_VERS_PROBLEMATIQUE: Record<string, string> = donnees.emotionsVersProblematique;
 export const PROBLEMATIQUES: Problematique[] = donnees.problematiques;
 export const DISTORSIONS: Distorsion[] = donnees.distorsions;
 export const QUESTIONS: Question[] = donnees.questions as Question[];
