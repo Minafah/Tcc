@@ -1,7 +1,7 @@
 // Journal (F8) : liste, recherche, filtre, détail, modification et suppression.
 import { useMemo, useState } from 'react';
 import { AvantApres, Entete } from '../components/ui';
-import { distorsion, question } from '../lib/contenu';
+import { PROBLEMATIQUES, distorsion, question } from '../lib/contenu';
 import { formaterDate, textesLibres } from '../lib/session';
 import { normaliser } from '../lib/texte';
 import type { Session } from '../lib/types';
@@ -14,6 +14,8 @@ export function Journal(props: {
 }) {
   const [recherche, setRecherche] = useState('');
   const [emotion, setEmotion] = useState('');
+  const [problematique, setProblematique] = useState('');
+  const problematiques = PROBLEMATIQUES.filter((p) => props.sessions.some((s) => s.problematique === p.id));
   const emotions = useMemo(
     () => [...new Set(props.sessions.map((s) => s.emotion.libelle).filter(Boolean))].sort(),
     [props.sessions],
@@ -21,6 +23,7 @@ export function Journal(props: {
 
   const filtrees = props.sessions.filter((s) => {
     if (emotion && s.emotion.libelle !== emotion) return false;
+    if (problematique && s.problematique !== problematique) return false;
     if (!recherche.trim()) return true;
     return normaliser(textesLibres(s).join(' ')).includes(normaliser(recherche));
   });
@@ -30,6 +33,16 @@ export function Journal(props: {
       <Entete titre="Mon journal" onRetour={props.onRetour} onSos={props.onSos} />
       <div className="contenu">
         <input type="search" placeholder="Rechercher…" value={recherche} onChange={(e) => setRecherche(e.target.value)} />
+        {problematiques.length > 1 ? (
+          <select value={problematique} onChange={(e) => setProblematique(e.target.value)} aria-label="Filtrer par problématique">
+            <option value="">Toutes les problématiques</option>
+            {problematiques.map((p) => (
+              <option key={p.id} value={p.id}>
+                {p.libelle}
+              </option>
+            ))}
+          </select>
+        ) : null}
         {emotions.length > 1 ? (
           <select value={emotion} onChange={(e) => setEmotion(e.target.value)} aria-label="Filtrer par émotion">
             <option value="">Toutes les émotions</option>
