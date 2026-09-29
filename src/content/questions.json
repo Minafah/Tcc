@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "emotions": [
+    "Anxiété",
+    "Peur",
+    "Inquiétude",
+    "Stress",
+    "Panique",
+    "Nervosité",
+    "Tristesse",
+    "Colère",
+    "Culpabilité",
+    "Honte",
+    "Autre"
+  ],
+  "problematiques": [
+    {
+      "id": "anxiete",
+      "libelle": "Anxiété",
+      "description": "Menace, anticipation, catastrophisme",
+      "active": true
+    },
+    { "id": "colere", "libelle": "Colère", "description": "Injustice, intention prêtée à autrui", "active": false },
+    { "id": "culpabilite", "libelle": "Culpabilité", "description": "Responsabilité, honte", "active": false },
+    { "id": "tristesse", "libelle": "Tristesse", "description": "Perte, dévalorisation, désespoir", "active": false },
+    { "id": "estime", "libelle": "Estime de soi", "description": "Perfectionnisme, peur du jugement", "active": false }
+  ],
+  "distorsions": [
+    {
+      "id": "catastrophisme",
+      "libelle": "Catastrophisme",
+      "definition": "Imaginer le pire scénario et le vivre comme s'il était certain et insurmontable.",
+      "exemple": "« Si je rate cet entretien, ce sera terrible. »",
+      "signaux": ["terrible", "catastroph", "horrible", "le pire", "insupportable", "drame", "dramatique", "foutu", "fichu", "je ne m en remettrai"]
+    },
+    {
+      "id": "surestimation",
+      "libelle": "Surestimation de la probabilité",
+      "definition": "Considérer qu'un évènement redouté est très probable alors qu'il est seulement possible.",
+      "exemple": "« C'est sûr que ça va arriver. »",
+      "signaux": ["c est sur", "forcement", "certainement", "surement", "je suis sur", "va arriver", "ca arrive toujours", "a coup sur"]
+    },
+    {
+      "id": "incertitude",
+      "libelle": "Intolérance à l'incertitude",
+      "definition": "Avoir du mal à supporter de ne pas savoir, au point de vouloir une certitude totale avant d'avancer.",
+      "exemple": "« Et si… ? Je dois savoir maintenant. »",
+      "signaux": ["et si", "je ne sais pas", "je sais pas", "pas sur", "incertain", "besoin de savoir", "je dois savoir", "on ne sait jamais", "imprevu"]
+    },
+    {
+      "id": "anticipation",
+      "libelle": "Anticipation négative",
+      "definition": "Prédire que les choses vont mal se passer, comme si l'avenir était déjà écrit.",
+      "exemple": "« Ça va mal se passer. »",
+      "signaux": ["mal se passer", "mal tourner", "je vais rater", "je vais echouer", "va rater", "va echouer", "ca va mal", "va mal finir", "ca ne marchera pas", "ca va pas marcher"]
+    },
+    {
+      "id": "ressources",
+      "libelle": "Sous-estimation de mes ressources",
+      "definition": "Se sentir incapable de faire face, en oubliant ce qu'on a déjà traversé et les appuis disponibles.",
+      "exemple": "« Je n'y arriverai pas, je ne pourrai pas gérer. »",
+      "signaux": ["je n y arriverai", "j y arriverai pas", "je ne pourrai pas", "je pourrai pas", "pas capable", "incapable", "pas gerer", "je ne supporterai", "je vais craquer", "trop pour moi"]
+    },
+    {
+      "id": "lecture_pensee",
+      "libelle": "Lecture de pensée",
+      "definition": "Croire savoir ce que les autres pensent de nous, sans l'avoir vérifié.",
+      "exemple": "« Il pense que je suis nul. »",
+      "signaux": ["il pense", "elle pense", "ils pensent", "elles pensent", "vont penser", "va penser", "me trouve", "me trouvent", "me juge", "me jugent", "va me juger", "vont me juger", "croit que je", "croient que je", "se moque", "se moquent"]
+    },
+    {
+      "id": "tout_ou_rien",
+      "libelle": "Pensée tout ou rien",
+      "definition": "Voir les choses en noir ou blanc, sans nuance entre les deux extrêmes.",
+      "exemple": "« Si ce n'est pas parfait, c'est un échec total. »",
+      "signaux": ["toujours", "jamais", "rien", "personne", "completement", "totalement", "parfait", "echec total", "tout le monde"]
+    },
+    {
+      "id": "imperatifs",
+      "libelle": "Impératifs (« je dois »)",
+      "definition": "Se fixer des règles rigides (« il faut », « je dois ») et se sentir en faute si on ne les tient pas.",
+      "exemple": "« Il faut que je sois irréprochable. »",
+      "signaux": ["je dois", "il faut", "il faudrait", "je devrais", "j aurais du", "oblige", "obligee", "pas le droit"]
+    }
+  ],
+  "questions": [
+    { "id": "anx-d1", "problematique": "anxiete", "categorie": "depart", "distorsions": [], "texte": "Qu'est-ce qui vient de se passer, exactement, juste avant que cette pensée arrive ?" },
+    { "id": "anx-d2", "problematique": "anxiete", "categorie": "depart", "distorsions": [], "texte": "Si je devais résumer cette pensée en une phrase, ce serait laquelle ?" },
+    { "id": "anx-d3", "problematique": "anxiete", "categorie": "depart", "distorsions": [], "texte": "Sur quoi porte vraiment mon inquiétude : quelque chose qui pourrait arriver, ou quelque chose qui est déjà arrivé ?" },
+
+    { "id": "anx-cat1", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["catastrophisme"], "texte": "Quel est le pire qui pourrait arriver ? Et maintenant, quel est le scénario le plus probable ?" },
+    { "id": "anx-cat2", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["catastrophisme"], "texte": "Sur une échelle de 0 à 100, quelle est la gravité réelle si ça arrive, dans un mois ? Dans un an ?" },
+    { "id": "anx-cat3", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["catastrophisme", "anticipation"], "preuves": true, "texte": "Ai-je déjà vécu une situation où j'ai imaginé le pire, et qui s'est finalement bien passée ?" },
+    { "id": "anx-cat4", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["catastrophisme"], "preuves": true, "texte": "Qu'est-ce qui, concrètement, me fait dire que ce sera si grave ?" },
+    { "id": "anx-cat5", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["catastrophisme"], "texte": "Si un ami me racontait exactement cette situation, est-ce que je la trouverais aussi catastrophique ?" },
+
+    { "id": "anx-pro1", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["surestimation"], "texte": "Quelle est la probabilité réelle que cela arrive, de 0 à 100 % ?" },
+    { "id": "anx-pro2", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["surestimation"], "preuves": true, "texte": "Combien de fois cette même peur s'est-elle réalisée, sur toutes les fois où je l'ai eue ?" },
+    { "id": "anx-pro3", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["surestimation", "catastrophisme"], "texte": "Est-ce que je confonds « c'est possible » et « c'est probable » ?" },
+    { "id": "anx-pro4", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["surestimation"], "preuves": true, "texte": "Quelles preuves concrètes ai-je que cela va arriver, en dehors de la sensation d'inquiétude ?" },
+    { "id": "anx-pro5", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["surestimation"], "preuves": true, "texte": "Qu'est-ce qui rend ce risque plus élevé aujourd'hui que d'habitude, objectivement ?" },
+
+    { "id": "anx-inc1", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["incertitude"], "preuves": true, "texte": "Qu'est-ce qui est réellement incertain ici, et qu'est-ce que je sais avec certitude ?" },
+    { "id": "anx-inc2", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["incertitude"], "texte": "Ai-je besoin d'être sûr à 100 % pour avancer, ou puis-je avancer avec un doute raisonnable ?" },
+    { "id": "anx-inc3", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["incertitude"], "preuves": true, "texte": "Dans ma vie, quelles incertitudes ai-je déjà supportées sans tout contrôler ?" },
+    { "id": "anx-inc4", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["incertitude"], "texte": "Qu'est-ce que je gagnerais à accepter de ne pas tout savoir maintenant ?" },
+    { "id": "anx-inc5", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["incertitude"], "texte": "Cette envie de certitude totale m'aide-t-elle à agir, ou me bloque-t-elle ?" },
+
+    { "id": "anx-ant1", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["anticipation", "surestimation"], "texte": "Suis-je en train de prédire l'avenir comme si c'était déjà écrit ?" },
+    { "id": "anx-ant2", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["anticipation"], "preuves": true, "texte": "Quels éléments concrets appuient cette prédiction, et lesquels la contredisent ?" },
+    { "id": "anx-ant3", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["anticipation"], "preuves": true, "texte": "La dernière fois que j'ai anticipé un échec, comment cela s'est-il réellement passé ?" },
+    { "id": "anx-ant4", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["anticipation"], "texte": "Qu'est-ce que je pourrais faire maintenant pour influencer un peu la suite, plutôt que de la subir d'avance ?" },
+
+    { "id": "anx-res1", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["ressources"], "texte": "Si cela arrivait vraiment, qu'est-ce que je ferais, concrètement, étape par étape ?" },
+    { "id": "anx-res2", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["ressources"], "preuves": true, "texte": "Quelles situations difficiles ai-je déjà traversées, et comment j'y suis arrivé ?" },
+    { "id": "anx-res3", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["ressources"], "texte": "Sur qui ou sur quoi pourrais-je m'appuyer si besoin ?" },
+    { "id": "anx-res4", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["ressources"], "texte": "Est-ce que je me juge sur mes pires jours, en oubliant mes ressources habituelles ?" },
+    { "id": "anx-res5", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["ressources"], "texte": "Qu'est-ce que je dirais à quelqu'un que j'aime, s'il vivait cette même peur ?" },
+
+    { "id": "anx-lec1", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["lecture_pensee"], "preuves": true, "texte": "Qu'est-ce qui me fait penser que je sais ce que cette personne pense de moi ?" },
+    { "id": "anx-lec2", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["lecture_pensee"], "texte": "Quelle autre explication, moins centrée sur moi, pourrait expliquer son comportement ?" },
+    { "id": "anx-lec3", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["lecture_pensee"], "preuves": true, "texte": "Ai-je vérifié cette interprétation, ou est-ce une supposition ?" },
+    { "id": "anx-lec4", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["lecture_pensee"], "texte": "Même si cette personne pensait cela, qu'est-ce que ça changerait vraiment pour moi ?" },
+
+    { "id": "anx-tor1", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["tout_ou_rien"], "texte": "Est-ce que je vois cette situation en noir ou blanc, alors qu'il existe des nuances ?" },
+    { "id": "anx-tor2", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["tout_ou_rien", "catastrophisme"], "texte": "Sur une échelle de 0 à 100, où se situe vraiment cette situation, entre le meilleur et le pire cas ?" },
+    { "id": "anx-tor3", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["tout_ou_rien"], "texte": "Y a-t-il une version « ni parfaite ni catastrophique » que je n'ai pas encore considérée ?" },
+
+    { "id": "anx-imp1", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["imperatifs"], "texte": "D'où vient cette règle que je m'impose (« il faut que », « je dois ») ?" },
+    { "id": "anx-imp2", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["imperatifs"], "texte": "Est-ce une exigence réaliste, ou un idéal impossible à tenir tout le temps ?" },
+    { "id": "anx-imp3", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["imperatifs"], "texte": "Qu'est-ce que je risque vraiment si je ne suis pas à la hauteur de cette exigence, cette fois ?" },
+    { "id": "anx-imp4", "problematique": "anxiete", "categorie": "distorsion", "distorsions": ["imperatifs"], "texte": "Appliquerais-je la même exigence à quelqu'un d'autre dans ma situation ?" },
+
+    { "id": "anx-c1", "problematique": "anxiete", "categorie": "cloture", "distorsions": [], "texte": "Compte tenu de tout ce que je viens de me dire, quelle serait une façon plus juste et plus équilibrée de voir cette situation ?" },
+    { "id": "anx-c2", "problematique": "anxiete", "categorie": "cloture", "distorsions": [], "texte": "Si je devais expliquer cette situation à quelqu'un de confiance, avec du recul, qu'est-ce que je lui dirais ?" },
+    { "id": "anx-c3", "problematique": "anxiete", "categorie": "cloture", "distorsions": [], "texte": "Qu'est-ce que je sais maintenant que je ne me disais pas au début de cette session ?" },
+    { "id": "anx-c4", "problematique": "anxiete", "categorie": "cloture", "distorsions": [], "texte": "Quelle est la différence entre « ce que je ressens » et « ce qui est réellement en train de se passer » ?" },
+    { "id": "anx-c5", "problematique": "anxiete", "categorie": "cloture", "distorsions": [], "texte": "Qu'est-ce que je peux réellement contrôler ici, et qu'est-ce qui ne dépend pas de moi ?" },
+    { "id": "anx-c6", "problematique": "anxiete", "categorie": "cloture", "distorsions": [], "texte": "Pour ce qui ne dépend pas de moi, qu'est-ce que ça changerait d'essayer de l'accepter plutôt que de le combattre ?" },
+    { "id": "anx-c7", "problematique": "anxiete", "categorie": "cloture", "distorsions": [], "texte": "Quelle est la prochaine petite action utile, même minime, que je peux faire maintenant ?" }
+  ],
+  "gabarits": {
+    "anxiete": [
+      "Il est possible que [scénario redouté], mais il est plus probable que [scénario réaliste], et si le pire arrivait, je pourrais [ressource identifiée].",
+      "Je ne peux pas être sûr à 100 % de [ce qui m'inquiète], mais je peux [action concrète], et le reste, je ne le contrôle pas entièrement.",
+      "Cette pensée vient de [distorsion identifiée] ; en tenant compte des faits, une version plus juste serait : [reformulation]."
+    ]
+  },
+  "verification": {
+    "anxiete": [
+      "Est-ce que cette nouvelle pensée tient compte des faits, ou est-ce que je me raconte une histoire trop rassurante pour être crédible ?",
+      "Si je devais y croire à 100 %, à combien j'y crois réellement là, maintenant ?",
+      "Est-ce que cette pensée m'aiderait à agir, ou reste-t-elle juste une phrase que je me dis sans y croire ?"
+    ]
+  }
+}
