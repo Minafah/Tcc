@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "emotions": [
     "Anxiété",
     "Peur",
@@ -31,8 +31,8 @@
     {
       "id": "culpabilite",
       "libelle": "Culpabilité",
-      "description": "Responsabilité, honte",
-      "active": false
+      "description": "Responsabilité, honte, regrets",
+      "active": true
     },
     {
       "id": "tristesse",
@@ -296,6 +296,90 @@
         "ses quatre verites",
         "je vais repondre",
         "je vais claquer"
+      ]
+    },
+    {
+      "id": "personnalisation",
+      "libelle": "Personnalisation (trop de responsabilité)",
+      "definition": "S'attribuer toute la responsabilité d'une situation, en oubliant les autres facteurs qui ont joué.",
+      "exemple": "« C'est entièrement de ma faute. »",
+      "signaux": [
+        "ma faute",
+        "a cause de moi",
+        "je suis responsable",
+        "tout est de ma faute",
+        "j aurais pu l empecher",
+        "j aurais pu eviter",
+        "par ma faute"
+      ]
+    },
+    {
+      "id": "jugement_retrospectif",
+      "libelle": "Jugement après coup",
+      "definition": "Juger une décision passée avec des informations qu'on n'avait pas au moment d'agir.",
+      "exemple": "« J'aurais dû savoir que ça tournerait mal. »",
+      "signaux": [
+        "si j avais su",
+        "j aurais du savoir",
+        "j aurais du voir",
+        "j aurais du prevoir",
+        "j aurais du le voir venir",
+        "j aurais pu savoir",
+        "j aurais du comprendre"
+      ]
+    },
+    {
+      "id": "devalorisation_globale",
+      "libelle": "Dévalorisation globale",
+      "definition": "Tirer d'un acte ponctuel une conclusion sur toute sa valeur en tant que personne.",
+      "exemple": "« J'ai fait ça, donc je suis quelqu'un de mauvais. »",
+      "signaux": [
+        "je suis nul",
+        "je suis nulle",
+        "je suis un mauvais",
+        "je suis une mauvaise",
+        "quelqu un de mauvais",
+        "je suis horrible",
+        "je suis minable",
+        "je ne vaux rien",
+        "je vaux rien",
+        "honte de moi",
+        "je suis un monstre",
+        "je suis une personne horrible"
+      ]
+    },
+    {
+      "id": "rumination_culpabilite",
+      "libelle": "Culpabilité qui tourne en boucle",
+      "definition": "Ressasser une faute sans que cela mène à une réparation ou à un changement concret.",
+      "exemple": "« Je n'arrête pas d'y penser, je ne me le pardonnerai jamais. »",
+      "signaux": [
+        "je m en veux",
+        "j y pense sans arret",
+        "je n arrete pas d y penser",
+        "j arrete pas d y penser",
+        "je ne me le pardonnerai",
+        "je me le pardonnerai jamais",
+        "ca me ronge",
+        "je ressasse",
+        "en boucle",
+        "je me punis"
+      ]
+    },
+    {
+      "id": "double_standard",
+      "libelle": "Deux poids, deux mesures",
+      "definition": "Être bien plus sévère envers soi-même qu'on ne le serait envers quelqu'un d'autre pour la même erreur.",
+      "exemple": "« Les autres ont le droit de se tromper, pas moi. »",
+      "signaux": [
+        "pas moi",
+        "moi je n ai pas le droit",
+        "moi j ai pas le droit",
+        "les autres peuvent",
+        "les autres ont le droit",
+        "je ne me pardonne pas",
+        "je me pardonne pas",
+        "plus severe avec moi"
       ]
     }
   ],
@@ -927,6 +1011,218 @@
       "categorie": "cloture",
       "distorsions": [],
       "texte": "Qu'est-ce que je sais maintenant que je ne me disais pas au début de cette session ?"
+    },
+    {
+      "id": "cul-d01",
+      "problematique": "culpabilite",
+      "categorie": "depart",
+      "distorsions": [],
+      "texte": "Qu'est-ce qui vient de se passer, exactement, juste avant que la culpabilité apparaisse ?"
+    },
+    {
+      "id": "cul-d02",
+      "problematique": "culpabilite",
+      "categorie": "depart",
+      "distorsions": [],
+      "texte": "Si je devais résumer cette pensée en une phrase, ce serait laquelle ?"
+    },
+    {
+      "id": "cul-d03",
+      "problematique": "culpabilite",
+      "categorie": "depart",
+      "distorsions": [],
+      "texte": "Est-ce que je me sens coupable d'un acte précis, ou d'un ressenti plus général sur qui je suis ?"
+    },
+    {
+      "id": "cul-res01",
+      "problematique": "culpabilite",
+      "categorie": "distorsion",
+      "distorsions": [
+        "personnalisation"
+      ],
+      "preuves": true,
+      "texte": "Quelle part de responsabilité m'incombe réellement, en pourcentage ? Et le reste, à qui ou à quoi revient-il ?"
+    },
+    {
+      "id": "cul-res02",
+      "problematique": "culpabilite",
+      "categorie": "distorsion",
+      "distorsions": [
+        "personnalisation"
+      ],
+      "preuves": true,
+      "texte": "Quels autres facteurs, indépendants de moi, ont joué dans cette situation ?"
+    },
+    {
+      "id": "cul-res03",
+      "problematique": "culpabilite",
+      "categorie": "distorsion",
+      "distorsions": [
+        "personnalisation"
+      ],
+      "texte": "Est-ce que j'endosse une responsabilité qui ne m'appartient qu'en partie, ou pas du tout ?"
+    },
+    {
+      "id": "cul-res04",
+      "problematique": "culpabilite",
+      "categorie": "distorsion",
+      "distorsions": [
+        "personnalisation",
+        "double_standard"
+      ],
+      "texte": "Si quelqu'un d'autre avait fait exactement la même chose, lui attribuerais-je autant de responsabilité ?"
+    },
+    {
+      "id": "cul-ret01",
+      "problematique": "culpabilite",
+      "categorie": "distorsion",
+      "distorsions": [
+        "jugement_retrospectif"
+      ],
+      "preuves": true,
+      "texte": "Avais-je toutes les informations que j'ai maintenant, au moment où j'ai agi ?"
+    },
+    {
+      "id": "cul-ret02",
+      "problematique": "culpabilite",
+      "categorie": "distorsion",
+      "distorsions": [
+        "jugement_retrospectif"
+      ],
+      "texte": "Suis-je en train de juger mon choix passé avec ce que je sais aujourd'hui seulement ?"
+    },
+    {
+      "id": "cul-ret03",
+      "problematique": "culpabilite",
+      "categorie": "distorsion",
+      "distorsions": [
+        "jugement_retrospectif"
+      ],
+      "preuves": true,
+      "texte": "Avec les informations et l'état d'esprit que j'avais à ce moment-là, est-ce que ma décision était compréhensible ?"
+    },
+    {
+      "id": "cul-exi01",
+      "problematique": "culpabilite",
+      "categorie": "distorsion",
+      "distorsions": [
+        "imperatifs"
+      ],
+      "texte": "Cette règle que j'ai enfreinte (« je n'aurais jamais dû », « je dois toujours ») est-elle réaliste, ou est-ce un standard trop élevé même pour quelqu'un d'attentif ?"
+    },
+    {
+      "id": "cul-exi02",
+      "problematique": "culpabilite",
+      "categorie": "distorsion",
+      "distorsions": [
+        "imperatifs",
+        "double_standard"
+      ],
+      "texte": "Est-ce que j'applique à moi-même une exigence que je n'appliquerais pas à un ami dans la même situation ?"
+    },
+    {
+      "id": "cul-exi03",
+      "problematique": "culpabilite",
+      "categorie": "distorsion",
+      "distorsions": [
+        "imperatifs"
+      ],
+      "texte": "Qu'est-ce qu'une personne raisonnable, ni parfaite ni négligente, aurait pu faire de différent ici ?"
+    },
+    {
+      "id": "cul-val01",
+      "problematique": "culpabilite",
+      "categorie": "distorsion",
+      "distorsions": [
+        "devalorisation_globale"
+      ],
+      "texte": "Est-ce que je juge un acte ponctuel, ou est-ce que j'en tire une conclusion sur toute ma valeur en tant que personne ?"
+    },
+    {
+      "id": "cul-val02",
+      "problematique": "culpabilite",
+      "categorie": "distorsion",
+      "distorsions": [
+        "devalorisation_globale"
+      ],
+      "preuves": true,
+      "texte": "Qu'est-ce que cet acte ne dit pas de moi, en dehors de ce moment précis ?"
+    },
+    {
+      "id": "cul-val03",
+      "problematique": "culpabilite",
+      "categorie": "distorsion",
+      "distorsions": [
+        "devalorisation_globale"
+      ],
+      "texte": "Si un proche avait fait la même chose, dirais-je qu'il est quelqu'un de mauvais, ou qu'il a fait une erreur ?"
+    },
+    {
+      "id": "cul-rum01",
+      "problematique": "culpabilite",
+      "categorie": "distorsion",
+      "distorsions": [
+        "rumination_culpabilite"
+      ],
+      "texte": "Cette culpabilité me pousse-t-elle vers une réparation ou un changement concret, ou tourne-t-elle en boucle sans déboucher sur rien ?"
+    },
+    {
+      "id": "cul-rum02",
+      "problematique": "culpabilite",
+      "categorie": "distorsion",
+      "distorsions": [
+        "rumination_culpabilite"
+      ],
+      "texte": "Que puis-je réellement réparer ou améliorer maintenant, et que dois-je simplement accepter comme faisant partie du passé ?"
+    },
+    {
+      "id": "cul-rum03",
+      "problematique": "culpabilite",
+      "categorie": "distorsion",
+      "distorsions": [
+        "rumination_culpabilite"
+      ],
+      "preuves": true,
+      "texte": "Depuis combien de temps je me punis pour la même chose ? Est-ce que ça a déjà servi à quelque chose ?"
+    },
+    {
+      "id": "cul-dbl01",
+      "problematique": "culpabilite",
+      "categorie": "distorsion",
+      "distorsions": [
+        "double_standard"
+      ],
+      "texte": "Est-ce que je pardonnerais plus facilement à quelqu'un d'autre qu'à moi-même pour la même erreur ?"
+    },
+    {
+      "id": "cul-dbl02",
+      "problematique": "culpabilite",
+      "categorie": "distorsion",
+      "distorsions": [
+        "double_standard"
+      ],
+      "texte": "Mes normes sont-elles les mêmes pour moi et pour les autres, ou suis-je plus sévère envers moi-même ?"
+    },
+    {
+      "id": "cul-clo01",
+      "problematique": "culpabilite",
+      "categorie": "cloture",
+      "distorsions": [],
+      "texte": "Compte tenu de tout ce que je viens de me dire, quelle serait une façon plus juste et plus nuancée de voir ce que j'ai fait ?"
+    },
+    {
+      "id": "cul-clo02",
+      "problematique": "culpabilite",
+      "categorie": "cloture",
+      "distorsions": [],
+      "texte": "Si un ami me racontait exactement la même situation, à propos de lui-même, qu'est-ce que je lui dirais ?"
+    },
+    {
+      "id": "cul-clo03",
+      "problematique": "culpabilite",
+      "categorie": "cloture",
+      "distorsions": [],
+      "texte": "Qu'est-ce que je sais maintenant que je ne me disais pas au début de cette session ?"
     }
   ],
   "gabarits": {
@@ -939,6 +1235,11 @@
       "Je ne connais pas les intentions réelles de [personne], mais il est possible que [explication alternative] ; ce qui compte pour moi, c'est [ce que je veux vraiment obtenir].",
       "Cette règle que j'attendais n'est peut-être pas partagée par tout le monde ; ce qui serait juste et utile maintenant, c'est [action ou message concret].",
       "Ma colère vient de [distorsion identifiée] ; en tenant compte des faits, une version plus posée serait : [reformulation]."
+    ],
+    "culpabilite": [
+      "J'ai ma part de responsabilité dans [ce qui s'est passé], mais [autres facteurs] y ont aussi contribué ; ce que je peux faire maintenant, c'est [réparation ou changement concret].",
+      "Avec ce que je savais à ce moment-là, ma décision était compréhensible ; ce que je ferais différemment aujourd'hui, c'est [ajustement], sans en tirer une conclusion sur toute ma valeur.",
+      "Cette culpabilité vient de [distorsion identifiée] ; en tenant compte des faits, une version plus juste serait : [reformulation]."
     ]
   },
   "verification": {
@@ -951,6 +1252,11 @@
       "Est-ce que cette nouvelle pensée me permet d'agir de façon alignée avec ce qui compte pour moi ?",
       "À combien j'y crois réellement, de 0 à 100 % ?",
       "Si je dois encore exprimer quelque chose à quelqu'un, quelle serait la façon la plus utile de le dire, une fois calmé ?"
+    ],
+    "culpabilite": [
+      "Est-ce que cette nouvelle pensée reconnaît ma part réelle de responsabilité, sans l'exagérer ni la nier complètement ?",
+      "À combien j'y crois réellement, de 0 à 100 % ?",
+      "Cette pensée m'aide-t-elle à réparer ou avancer, ou reste-t-elle une phrase que je me dis sans y croire ?"
     ]
   },
   "emotionsVersProblematique": {
@@ -962,6 +1268,14 @@
     "Nervosité": "anxiete",
     "Colère": "colere",
     "Irritation": "colere",
-    "Frustration": "colere"
+    "Frustration": "colere",
+    "Culpabilité": "culpabilite",
+    "Honte": "culpabilite"
+  },
+  "distorsionsPrioritairesParEmotion": {
+    "Honte": [
+      "devalorisation_globale",
+      "double_standard"
+    ]
   }
 }
