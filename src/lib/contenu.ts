@@ -7,6 +7,8 @@ export const EMOTIONS: string[] = donnees.emotions;
 export const EMOTIONS_VERS_PROBLEMATIQUE: Record<string, string> = donnees.emotionsVersProblematique;
 /** Distorsions à privilégier selon l'émotion (ex. honte → dévalorisation, doubles standards). */
 export const DISTORSIONS_PRIORITAIRES: Record<string, string[]> = donnees.distorsionsPrioritairesParEmotion;
+/** Banques où une problématique peut aussi piocher des questions (ex. estime → tristesse, culpabilité). */
+export const BANQUES_ASSOCIEES: Record<string, string[]> = donnees.banquesAssociees;
 export const PROBLEMATIQUES: Problematique[] = donnees.problematiques;
 export const DISTORSIONS: Distorsion[] = donnees.distorsions;
 export const QUESTIONS: Question[] = donnees.questions as Question[];

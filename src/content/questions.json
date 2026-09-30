@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "emotions": [
     "Anxiété",
     "Peur",
@@ -14,6 +14,7 @@
     "Irritation",
     "Culpabilité",
     "Honte",
+    "Doute de soi",
     "Autre"
   ],
   "problematiques": [
@@ -45,7 +46,7 @@
       "id": "estime",
       "libelle": "Estime de soi",
       "description": "Perfectionnisme, peur du jugement",
-      "active": false
+      "active": true
     }
   ],
   "distorsions": [
@@ -473,6 +474,68 @@
         "en boucle",
         "sans arret",
         "j y pense tout le temps"
+      ]
+    },
+    {
+      "id": "etiquetage_global",
+      "libelle": "Étiquetage global",
+      "definition": "Se coller une étiquette sur toute sa personne à partir d'un comportement précis.",
+      "exemple": "« J'ai raté cet exposé, je suis nul. »",
+      "signaux": [
+        "je suis nul",
+        "je suis nulle",
+        "je suis bete",
+        "je suis idiot",
+        "je suis idiote",
+        "je suis stupide",
+        "je suis incapable",
+        "je suis incompetent",
+        "je suis incompetente",
+        "je suis un rate",
+        "je suis une ratee",
+        "je suis un echec",
+        "je suis pathetique",
+        "je suis un loser"
+      ]
+    },
+    {
+      "id": "perfectionnisme",
+      "libelle": "Perfectionnisme",
+      "definition": "Juger en réussite totale ou échec total, avec des standards si élevés qu'ils sont presque impossibles à tenir.",
+      "exemple": "« Si ce n'est pas parfait, ça ne vaut rien. »",
+      "signaux": [
+        "parfait",
+        "parfaite",
+        "parfaitement",
+        "sans faute",
+        "pas assez bien",
+        "pas a la hauteur",
+        "jamais assez",
+        "echec total",
+        "completement rate",
+        "irreprochable",
+        "la moindre erreur"
+      ]
+    },
+    {
+      "id": "estime_conditionnelle",
+      "libelle": "Estime de soi conditionnelle",
+      "definition": "Faire dépendre toute sa valeur d'un résultat ou de l'approbation des autres.",
+      "exemple": "« Si je n'ai pas ce poste, je ne vaux rien. »",
+      "signaux": [
+        "si je rate",
+        "si j echoue",
+        "si je ne reussis pas",
+        "si je reussis pas",
+        "je ne vaux que",
+        "je vaux rien si",
+        "je ne vaux rien si",
+        "s il ne m aime pas",
+        "s ils ne m aiment pas",
+        "s il me rejette",
+        "s ils me rejettent",
+        "s ils ne m apprecient pas",
+        "ma valeur"
       ]
     }
   ],
@@ -1530,6 +1593,208 @@
       "categorie": "cloture",
       "distorsions": [],
       "texte": "Qu'est-ce qui reste possible, même en petit, aujourd'hui ?"
+    },
+    {
+      "id": "est-d01",
+      "problematique": "estime",
+      "categorie": "depart",
+      "distorsions": [],
+      "texte": "Qu'est-ce qui vient de se passer, exactement, juste avant que ce jugement sur moi-même apparaisse ?"
+    },
+    {
+      "id": "est-d02",
+      "problematique": "estime",
+      "categorie": "depart",
+      "distorsions": [],
+      "texte": "Si je devais résumer cette pensée en une phrase, ce serait laquelle ?"
+    },
+    {
+      "id": "est-d03",
+      "problematique": "estime",
+      "categorie": "depart",
+      "distorsions": [],
+      "texte": "Ce jugement porte-t-il sur un comportement précis, ou sur toute ma valeur en tant que personne ?"
+    },
+    {
+      "id": "est-eti01",
+      "problematique": "estime",
+      "categorie": "distorsion",
+      "distorsions": [
+        "etiquetage_global"
+      ],
+      "texte": "Est-ce que cette pensée décrit un comportement (« j'ai raté ça ») ou toute ma personne (« je suis nul ») ?"
+    },
+    {
+      "id": "est-eti02",
+      "problematique": "estime",
+      "categorie": "distorsion",
+      "distorsions": [
+        "etiquetage_global"
+      ],
+      "texte": "Si un ami avait fait exactement la même chose, lui collerais-je la même étiquette ?"
+    },
+    {
+      "id": "est-eti03",
+      "problematique": "estime",
+      "categorie": "distorsion",
+      "distorsions": [
+        "etiquetage_global"
+      ],
+      "preuves": true,
+      "texte": "Quelle formulation plus précise, centrée sur le fait plutôt que sur l'étiquette, décrirait mieux ce qui s'est passé ?"
+    },
+    {
+      "id": "est-per01",
+      "problematique": "estime",
+      "categorie": "distorsion",
+      "distorsions": [
+        "perfectionnisme"
+      ],
+      "texte": "Est-ce que je juge cela en tout ou rien (réussite totale ou échec total), sans place pour l'entre-deux ?"
+    },
+    {
+      "id": "est-per02",
+      "problematique": "estime",
+      "categorie": "distorsion",
+      "distorsions": [
+        "perfectionnisme"
+      ],
+      "texte": "Quels critères plus nuancés qu'échec ou réussite puis-je utiliser ici ?"
+    },
+    {
+      "id": "est-per03",
+      "problematique": "estime",
+      "categorie": "distorsion",
+      "distorsions": [
+        "perfectionnisme"
+      ],
+      "texte": "Quel serait un standard réaliste et bienveillant, que je pourrais tenir la plupart du temps ?"
+    },
+    {
+      "id": "est-con01",
+      "problematique": "estime",
+      "categorie": "distorsion",
+      "distorsions": [
+        "estime_conditionnelle"
+      ],
+      "texte": "Est-ce que ma valeur, à mes yeux, dépend entièrement de ce résultat ou de ce que pense cette personne ?"
+    },
+    {
+      "id": "est-con02",
+      "problematique": "estime",
+      "categorie": "distorsion",
+      "distorsions": [
+        "estime_conditionnelle"
+      ],
+      "preuves": true,
+      "texte": "Si ce résultat n'avait pas existé, qu'est-ce qui, en moi, aurait quand même de la valeur ?"
+    },
+    {
+      "id": "est-con03",
+      "problematique": "estime",
+      "categorie": "distorsion",
+      "distorsions": [
+        "estime_conditionnelle"
+      ],
+      "texte": "Sur quoi d'autre que la performance ou l'approbation des autres puis-je baser mon estime de moi-même ?"
+    },
+    {
+      "id": "est-fil01",
+      "problematique": "estime",
+      "categorie": "distorsion",
+      "distorsions": [
+        "filtre_mental"
+      ],
+      "preuves": true,
+      "texte": "Quelles qualités, réussites ou preuves de compétence ne rentrent pas dans le jugement que je porte là ?"
+    },
+    {
+      "id": "est-fil02",
+      "problematique": "estime",
+      "categorie": "distorsion",
+      "distorsions": [
+        "filtre_mental"
+      ],
+      "texte": "Est-ce que je retiens surtout mes échecs et j'oublie mes réussites, même récentes ?"
+    },
+    {
+      "id": "est-fil03",
+      "problematique": "estime",
+      "categorie": "distorsion",
+      "distorsions": [
+        "filtre_mental"
+      ],
+      "preuves": true,
+      "texte": "Si je faisais la liste de mes dix dernières semaines, quelle place prendrait vraiment cet évènement ?"
+    },
+    {
+      "id": "est-jug01",
+      "problematique": "estime",
+      "categorie": "distorsion",
+      "distorsions": [
+        "lecture_pensee"
+      ],
+      "preuves": true,
+      "texte": "Qu'est-ce qui me fait penser que je sais ce que les autres pensent réellement de moi ?"
+    },
+    {
+      "id": "est-jug02",
+      "problematique": "estime",
+      "categorie": "distorsion",
+      "distorsions": [
+        "lecture_pensee",
+        "estime_conditionnelle"
+      ],
+      "texte": "Même si certains me jugeaient, est-ce que cela changerait ma valeur réelle ?"
+    },
+    {
+      "id": "est-jug03",
+      "problematique": "estime",
+      "categorie": "distorsion",
+      "distorsions": [
+        "lecture_pensee"
+      ],
+      "preuves": true,
+      "texte": "Ai-je déjà eu tort, par le passé, en imaginant le jugement de quelqu'un ?"
+    },
+    {
+      "id": "est-com01",
+      "problematique": "estime",
+      "categorie": "distorsion",
+      "distorsions": [
+        "comparaison_rumination"
+      ],
+      "texte": "Est-ce que je me compare à une version idéalisée de quelqu'un d'autre, sans connaître ses difficultés réelles ?"
+    },
+    {
+      "id": "est-com02",
+      "problematique": "estime",
+      "categorie": "distorsion",
+      "distorsions": [
+        "comparaison_rumination"
+      ],
+      "texte": "Cette comparaison m'aide-t-elle à avancer, ou me tire-t-elle seulement vers le bas ?"
+    },
+    {
+      "id": "est-clo01",
+      "problematique": "estime",
+      "categorie": "cloture",
+      "distorsions": [],
+      "texte": "Compte tenu de tout ce que je viens de me dire, quelle serait une façon plus juste et plus complète de me voir dans cette situation ?"
+    },
+    {
+      "id": "est-clo02",
+      "problematique": "estime",
+      "categorie": "cloture",
+      "distorsions": [],
+      "texte": "Si un ami me décrivait exactement cette situation à propos de lui-même, qu'est-ce que je lui dirais de sa valeur ?"
+    },
+    {
+      "id": "est-clo03",
+      "problematique": "estime",
+      "categorie": "cloture",
+      "distorsions": [],
+      "texte": "Qu'est-ce que je sais maintenant que je ne me disais pas au début de cette session ?"
     }
   ],
   "gabarits": {
@@ -1552,6 +1817,11 @@
       "Ce moment est difficile et [élément concret] va mal, mais [élément qui nuance] existe aussi ; une petite chose que je peux faire maintenant, c'est [action minime].",
       "Je ne peux pas être certain que rien ne changera ; par le passé, [exemple de changement vécu] s'est produit alors que je ne l'imaginais pas.",
       "Cette tristesse vient de [distorsion identifiée] ; en tenant compte de l'ensemble, une version plus juste serait : [reformulation]."
+    ],
+    "estime": [
+      "J'ai [comportement précis], ce qui ne veut pas dire que je suis [étiquette globale] ; ce que ça montre, c'est [interprétation plus nuancée].",
+      "Mon standard ici était peut-être trop élevé ; un standard réaliste et bienveillant serait [reformulation du standard].",
+      "Ce jugement sur moi-même vient de [distorsion identifiée] ; en tenant compte de l'ensemble, une version plus juste serait : [reformulation]."
     ]
   },
   "verification": {
@@ -1574,6 +1844,11 @@
       "Est-ce que cette nouvelle pensée tient compte de l'ensemble de la situation, pas seulement du côté positif forcé ?",
       "À combien j'y crois réellement, de 0 à 100 % ?",
       "Qu'est-ce que cette pensée me permettrait de faire, même une toute petite chose, dans les prochaines heures ?"
+    ],
+    "estime": [
+      "Est-ce que cette nouvelle pensée reconnaît mes limites réelles, sans les nier ni les exagérer ?",
+      "À combien j'y crois réellement, de 0 à 100 % ?",
+      "Cette pensée m'aide-t-elle à continuer d'avancer, ou reste-t-elle une phrase que je me dis sans y croire ?"
     ]
   },
   "emotionsVersProblematique": {
@@ -1589,12 +1864,19 @@
     "Culpabilité": "culpabilite",
     "Honte": "culpabilite",
     "Tristesse": "tristesse",
-    "Découragement": "tristesse"
+    "Découragement": "tristesse",
+    "Doute de soi": "estime"
   },
   "distorsionsPrioritairesParEmotion": {
     "Honte": [
       "devalorisation_globale",
       "double_standard"
+    ]
+  },
+  "banquesAssociees": {
+    "estime": [
+      "tristesse",
+      "culpabilite"
     ]
   }
 }

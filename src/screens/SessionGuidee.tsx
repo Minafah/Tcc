@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Respiration } from '../components/Apaisement';
 import { AvantApres, Curseur, Entete, Progression, Puces } from '../components/ui';
-import { DISTORSIONS, DISTORSIONS_PRIORITAIRES, EMOTIONS, EMOTIONS_VERS_PROBLEMATIQUE, GABARITS, PROBLEMATIQUES, QUESTIONS, VERIFICATION, distorsion, distorsionsDe, question } from '../lib/contenu';
+import { BANQUES_ASSOCIEES, DISTORSIONS, DISTORSIONS_PRIORITAIRES, EMOTIONS, EMOTIONS_VERS_PROBLEMATIQUE, GABARITS, PROBLEMATIQUES, QUESTIONS, VERIFICATION, distorsion, distorsionsDe, question } from '../lib/contenu';
 import { detecterCrise } from '../lib/crise';
 import { historique } from '../lib/db';
 import { SEUIL_APAISEMENT, selectionnerQuestions, suggererDistorsion, suggererProfessionnel } from '../lib/moteur';
@@ -164,6 +164,7 @@ function EtapePensee({ session, maj, allerA, onSos, avancerSiSansCrise }: PropsE
         distorsion: choix && choix !== 'auto' ? choix : null,
         distorsionsPossibles: prioritaires.length > 0 ? prioritaires : possibles.map((x) => x.id),
         historique: await historique(),
+        problematiquesAssociees: BANQUES_ASSOCIEES[session.problematique],
       });
       questionIds = selection.questionIds;
       pensee = { ...pensee, distorsions: [selection.distorsion] };

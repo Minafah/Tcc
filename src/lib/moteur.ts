@@ -19,6 +19,11 @@ export interface ParamsSelection {
   distorsionsPossibles: string[];
   /** Sessions terminées, de la plus récente à la plus ancienne. */
   historique: Session[];
+  /**
+   * Autres banques où piocher des questions de la même distorsion (règle 13.9 :
+   * l'estime de soi recoupe la tristesse et la culpabilité).
+   */
+  problematiquesAssociees?: string[];
   aleatoire?: () => number;
 }
 
@@ -41,7 +46,13 @@ export function selectionnerQuestions(p: ParamsSelection): Selection {
   const departs = banque.filter((q) => q.categorie === 'depart');
   const clotures = banque.filter((q) => q.categorie === 'cloture');
   const toutesDistorsions = banque.filter((q) => q.categorie === 'distorsion');
-  const deLaDistorsion = toutesDistorsions.filter((q) => q.distorsions.includes(distorsion));
+  const associees = new Set(p.problematiquesAssociees ?? []);
+  const deLaDistorsion = p.questions.filter(
+    (q) =>
+      q.categorie === 'distorsion' &&
+      q.distorsions.includes(distorsion) &&
+      (q.problematique === p.problematique || associees.has(q.problematique)),
+  );
 
   // 1 question de départ.
   const depart = choisir(departs, 1, bloquees, recentesGlobal, rng, true);
