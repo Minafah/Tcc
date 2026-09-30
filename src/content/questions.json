@@ -1801,27 +1801,27 @@
     "anxiete": [
       "Il est possible que [scénario redouté], mais il est plus probable que [scénario réaliste], et si le pire arrivait, je pourrais [ressource identifiée].",
       "Je ne peux pas être sûr à 100 % de [ce qui m'inquiète], mais je peux [action concrète], et le reste, je ne le contrôle pas entièrement.",
-      "Cette pensée vient de [distorsion identifiée] ; en tenant compte des faits, une version plus juste serait : [reformulation]."
+      "Dans cette pensée, je reconnais [distorsion identifiée] ; en tenant compte des faits, une version plus juste serait : [reformulation]."
     ],
     "colere": [
       "Je ne connais pas les intentions réelles de [personne], mais il est possible que [explication alternative] ; ce qui compte pour moi, c'est [ce que je veux vraiment obtenir].",
       "Cette règle que j'attendais n'est peut-être pas partagée par tout le monde ; ce qui serait juste et utile maintenant, c'est [action ou message concret].",
-      "Ma colère vient de [distorsion identifiée] ; en tenant compte des faits, une version plus posée serait : [reformulation]."
+      "Dans ma colère, je reconnais [distorsion identifiée] ; en tenant compte des faits, une version plus posée serait : [reformulation]."
     ],
     "culpabilite": [
       "J'ai ma part de responsabilité dans [ce qui s'est passé], mais [autres facteurs] y ont aussi contribué ; ce que je peux faire maintenant, c'est [réparation ou changement concret].",
       "Avec ce que je savais à ce moment-là, ma décision était compréhensible ; ce que je ferais différemment aujourd'hui, c'est [ajustement], sans en tirer une conclusion sur toute ma valeur.",
-      "Cette culpabilité vient de [distorsion identifiée] ; en tenant compte des faits, une version plus juste serait : [reformulation]."
+      "Dans cette culpabilité, je reconnais [distorsion identifiée] ; en tenant compte des faits, une version plus juste serait : [reformulation]."
     ],
     "tristesse": [
       "Ce moment est difficile et [élément concret] va mal, mais [élément qui nuance] existe aussi ; une petite chose que je peux faire maintenant, c'est [action minime].",
       "Je ne peux pas être certain que rien ne changera ; par le passé, [exemple de changement vécu] s'est produit alors que je ne l'imaginais pas.",
-      "Cette tristesse vient de [distorsion identifiée] ; en tenant compte de l'ensemble, une version plus juste serait : [reformulation]."
+      "Dans cette tristesse, je reconnais [distorsion identifiée] ; en tenant compte de l'ensemble, une version plus juste serait : [reformulation]."
     ],
     "estime": [
       "J'ai [comportement précis], ce qui ne veut pas dire que je suis [étiquette globale] ; ce que ça montre, c'est [interprétation plus nuancée].",
       "Mon standard ici était peut-être trop élevé ; un standard réaliste et bienveillant serait [reformulation du standard].",
-      "Ce jugement sur moi-même vient de [distorsion identifiée] ; en tenant compte de l'ensemble, une version plus juste serait : [reformulation]."
+      "Dans ce jugement sur moi-même, je reconnais [distorsion identifiée] ; en tenant compte de l'ensemble, une version plus juste serait : [reformulation]."
     ]
   },
   "verification": {
