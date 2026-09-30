@@ -81,11 +81,11 @@ export function Progression(props: { valeur: number; max: number }) {
 }
 
 /** Deux barres « avant / après » sur 0-100. */
-export function AvantApres(props: { titre: string; avant: number; apres: number | null; unite?: string }) {
+export function AvantApres(props: { titre?: string; avant: number; apres: number | null; unite?: string }) {
   const u = props.unite ?? '';
   return (
     <div className="comparaison">
-      <h3>{props.titre}</h3>
+      {props.titre ? <h3>{props.titre}</h3> : null}
       <div className="barre">
         <span className="doux">Avant</span>
         <div className="barre-fond">

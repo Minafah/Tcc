@@ -4,6 +4,7 @@ import { Respiration } from '../components/Apaisement';
 import { AvantApres, Curseur, Entete, Progression, Puces } from '../components/ui';
 import { BANQUES_ASSOCIEES, DISTORSIONS, DISTORSIONS_PRIORITAIRES, EMOTIONS, EMOTIONS_VERS_PROBLEMATIQUE, GABARITS, PROBLEMATIQUES, QUESTIONS, VERIFICATION, distorsion, distorsionsDe, question } from '../lib/contenu';
 import { detecterCrise } from '../lib/crise';
+import { evolution, messageBilan } from '../lib/bilan';
 import { historique } from '../lib/db';
 import { SEUIL_APAISEMENT, selectionnerQuestions, suggererDistorsion, suggererProfessionnel } from '../lib/moteur';
 import type { Etape, Reponse, Session } from '../lib/types';
@@ -371,14 +372,16 @@ function EtapeAlternative({ session, maj, allerA, onSos, avancerSiSansCrise }: P
   const intensiteApres = session.emotion.intensiteApres ?? session.emotion.intensiteAvant;
   const reponsesEcrites = session.reponses.filter((r) => r.texte.trim() !== '');
 
+  // Les modèles sont affichés avec le type de pensée choisi déjà rempli.
+  const typeChoisi = distorsion(session.pensee.distorsions[0])?.libelle;
+  const remplir = (g: string) =>
+    typeChoisi ? g.replace('[distorsion identifiée]', `le piège « ${typeChoisi} »`) : g;
   const utiliserGabarit = (g: string) => {
-    const nomDistorsion = distorsion(session.pensee.distorsions[0])?.libelle;
-    // « vient de [distorsion identifiée] » → « vient du piège « Catastrophisme » ».
-    const texte = nomDistorsion
-      ? g.replace('de [distorsion identifiée]', `du piège « ${nomDistorsion} »`).replace('[distorsion identifiée]', `« ${nomDistorsion} »`)
-      : g;
+    const texte = remplir(g);
     maj({ penseeAlternative: { ...alt, texte: alt.texte ? `${alt.texte}\n${texte}` : texte } });
   };
+  // Passages entre crochets pas encore remplacés (ex. « [reformulation] »).
+  const aRemplacer = alt.texte.match(/\[[^\]]+\]/g) ?? [];
 
   const terminer = () =>
     avancerSiSansCrise([alt.texte], () =>
@@ -425,7 +428,7 @@ function EtapeAlternative({ session, maj, allerA, onSos, avancerSiSansCrise }: P
           <div className="liste">
             {gabarits.map((g) => (
               <button key={g} className="carte carte-cliquable petit" onClick={() => utiliserGabarit(g)}>
-                {g}
+                {remplir(g)}
               </button>
             ))}
           </div>
@@ -439,6 +442,12 @@ function EtapeAlternative({ session, maj, allerA, onSos, avancerSiSansCrise }: P
             placeholder="Une façon plus équilibrée de voir la situation…"
           />
         </label>
+        {aRemplacer.length > 0 ? (
+          <p className="encart alerte petit">
+            Il reste {aRemplacer.length > 1 ? 'des passages' : 'un passage'} entre crochets à remplacer par tes mots :{' '}
+            {aRemplacer.join(', ')}
+          </p>
+        ) : null}
 
         <details className="carte">
           <summary>Vérifier avant de valider</summary>
@@ -468,7 +477,7 @@ function EtapeAlternative({ session, maj, allerA, onSos, avancerSiSansCrise }: P
         />
       </div>
       <div className="actions">
-        <button className="bouton" disabled={alt.texte.trim() === ''} onClick={terminer}>
+        <button className="bouton" disabled={alt.texte.trim() === '' || aRemplacer.length > 0} onClick={terminer}>
           Voir mon bilan
         </button>
       </div>
@@ -486,7 +495,8 @@ function EtapeBilan({ session, onQuitter, onSos }: PropsEtape) {
 
   const avant = session.emotion.intensiteAvant;
   const apres = session.emotion.intensiteApres ?? avant;
-  const ecart = avant - apres;
+  const croyanceAvant = session.pensee.croyanceAvant;
+  const croyanceApres = session.pensee.croyanceApres ?? croyanceAvant;
   const d = DISTORSIONS.find((x) => x.id === session.pensee.distorsions[0]);
 
   return (
@@ -494,24 +504,43 @@ function EtapeBilan({ session, onQuitter, onSos }: PropsEtape) {
       <Entete titre="Bilan" onSos={onSos} />
       <Progression valeur={5} max={5} />
       <div className="contenu">
-        <h2>Tu as pris le temps de regarder cette pensée de plus près.</h2>
-        <p className="doux">
-          {ecart > 0
-            ? `Ton émotion est passée de ${avant} à ${apres}.`
-            : "L'émotion met parfois du temps à redescendre. Le travail que tu viens de faire compte quand même."}
-        </p>
+        <h2>Bilan de ta session</h2>
+        <p>{messageBilan(session)}</p>
 
         <div className="carte">
-          <AvantApres titre={session.emotion.libelle} avant={avant} apres={apres} />
-          <AvantApres titre="Croyance dans la pensée de départ" avant={session.pensee.croyanceAvant} apres={session.pensee.croyanceApres} unite=" %" />
+          <h3>En résumé</h3>
+          <ul className="recap">
+            {d ? (
+              <li>
+                <span className="doux petit">Piège de pensée travaillé</span>
+                <strong>{d.libelle}</strong>
+                <span className="doux petit">{d.definition}</span>
+              </li>
+            ) : null}
+            <li>
+              <span className="doux petit">{session.emotion.libelle || 'Émotion'}</span>
+              <strong>{evolution(avant, apres)}</strong>
+              <AvantApres avant={avant} apres={apres} />
+            </li>
+            <li>
+              <span className="doux petit">Croyance dans ta pensée de départ</span>
+              <strong>{evolution(croyanceAvant, croyanceApres, ' %')}</strong>
+              <AvantApres avant={croyanceAvant} apres={croyanceApres} unite=" %" />
+            </li>
+            {session.penseeAlternative.croyance !== null ? (
+              <li>
+                <span className="doux petit">Croyance dans ta nouvelle pensée</span>
+                <strong>{session.penseeAlternative.croyance} %</strong>
+              </li>
+            ) : null}
+          </ul>
         </div>
 
         <div className="carte">
-          <p className="doux petit">Pensée de départ</p>
+          <p className="doux petit">Ta pensée de départ</p>
           <p>« {session.pensee.texte} »</p>
-          <p className="doux petit">Pensée alternative ({session.penseeAlternative.croyance ?? '–'} %)</p>
-          <p>« {session.penseeAlternative.texte} »</p>
-          {d ? <p className="doux petit">Type de pensée exploré : {d.libelle}</p> : null}
+          <p className="doux petit">Ta nouvelle pensée</p>
+          <p style={{ whiteSpace: 'pre-line' }}>« {session.penseeAlternative.texte} »</p>
         </div>
 
         {voirPro ? (
