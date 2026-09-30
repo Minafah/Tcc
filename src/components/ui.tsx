@@ -24,12 +24,15 @@ export function Curseur(props: {
   onChange: (v: number) => void;
   unite?: string;
   aide?: string;
+  /** Petit visage qui suit la valeur (ex. intensité de l'émotion). */
+  emoji?: string;
 }) {
   return (
     <div className="curseur">
       <div className="curseur-entete">
         <span>{props.libelle}</span>
         <span className="curseur-valeur">
+          {props.emoji ? <span aria-hidden="true">{props.emoji} </span> : null}
           {props.valeur}
           {props.unite ?? ''}
         </span>

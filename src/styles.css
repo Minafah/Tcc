@@ -259,6 +259,7 @@ select:focus {
 }
 
 .curseur-valeur {
+  white-space: nowrap;
   font-variant-numeric: tabular-nums;
   font-size: 1.3rem;
   color: var(--accent);
@@ -473,4 +474,47 @@ details summary {
   display: flex;
   flex-direction: column;
   gap: 2px;
+}
+
+/* Atelier « Une pensée plus juste » */
+.chemin {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.chemin-emoji {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.phrase-vivante {
+  background: var(--accent-doux);
+  border-color: transparent;
+}
+
+.phrase {
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+.case {
+  display: inline;
+  font: inherit;
+  font-weight: 600;
+  color: var(--texte);
+  background: var(--carte);
+  border: 1.5px solid var(--accent);
+  border-radius: 8px;
+  padding: 1px 6px;
+  cursor: pointer;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.case.vide {
+  border-style: dashed;
+  color: var(--texte-doux);
+  background: transparent;
+  min-width: 3ch;
 }

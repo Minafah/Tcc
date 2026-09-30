@@ -69,6 +69,10 @@ export interface Session {
   penseeAlternative: {
     texte: string;
     croyance: number | null;
+    /** Chemin guidé choisi (index dans les gabarits), -1 = mes propres mots, absent = pas encore choisi. */
+    gabarit?: number;
+    /** Réponses aux cases du chemin guidé. */
+    champs?: Record<string, string>;
   };
   /** Mots de crise déjà signalés et pour lesquels j'ai choisi de continuer. */
   criseAcquittee: string[];
