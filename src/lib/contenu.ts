@@ -1,5 +1,6 @@
 // Accès typé au contenu clinique (fichier JSON séparé du code, modifiable sans toucher à la logique).
 import donnees from '../content/questions.json';
+import type { Gabarit } from './gabarits';
 import type { Distorsion, Problematique, Question } from './types';
 
 export const EMOTIONS: string[] = donnees.emotions;
@@ -12,7 +13,8 @@ export const BANQUES_ASSOCIEES: Record<string, string[]> = donnees.banquesAssoci
 export const PROBLEMATIQUES: Problematique[] = donnees.problematiques;
 export const DISTORSIONS: Distorsion[] = donnees.distorsions;
 export const QUESTIONS: Question[] = donnees.questions as Question[];
-export const GABARITS: Record<string, string[]> = donnees.gabarits;
+/** Chemins guidés pour construire la pensée alternative, par problématique. */
+export const GABARITS = donnees.gabarits as unknown as Record<string, Gabarit[]>;
 export const VERIFICATION: Record<string, string[]> = donnees.verification;
 
 const questionsParId = new Map(QUESTIONS.map((q) => [q.id, q]));

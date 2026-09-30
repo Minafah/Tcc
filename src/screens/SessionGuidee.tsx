@@ -5,6 +5,7 @@ import { AvantApres, Curseur, Entete, Progression, Puces } from '../components/u
 import { BANQUES_ASSOCIEES, DISTORSIONS, DISTORSIONS_PRIORITAIRES, EMOTIONS, EMOTIONS_VERS_PROBLEMATIQUE, GABARITS, PROBLEMATIQUES, QUESTIONS, VERIFICATION, distorsion, distorsionsDe, question } from '../lib/contenu';
 import { detecterCrise } from '../lib/crise';
 import { evolution, messageBilan } from '../lib/bilan';
+import { CLE_PIEGE, casesARemplir, composer, estComplet, segments } from '../lib/gabarits';
 import { historique } from '../lib/db';
 import { SEUIL_APAISEMENT, selectionnerQuestions, suggererDistorsion, suggererProfessionnel } from '../lib/moteur';
 import type { Etape, Reponse, Session } from '../lib/types';
@@ -362,26 +363,47 @@ function EtapeQuestions({ session, maj, allerA, onSos, avancerSiSansCrise }: Pro
 }
 
 // --- Étape 4 : pensée alternative et réévaluation (F6) ---
+// Un petit atelier guidé : je choisis un chemin, je réponds à quelques questions douces,
+// et la phrase se construit toute seule. Aucun crochet à remplacer à la main.
+
+function emojiIntensite(v: number): string {
+  if (v <= 20) return '😌';
+  if (v <= 40) return '🙂';
+  if (v <= 60) return '😐';
+  if (v <= 80) return '😟';
+  return '😣';
+}
 
 function EtapeAlternative({ session, maj, allerA, onSos, avancerSiSansCrise }: PropsEtape) {
   const gabarits = GABARITS[session.problematique] ?? [];
   const verification = VERIFICATION[session.problematique] ?? [];
   const alt = session.penseeAlternative;
+  const typeChoisi = distorsion(session.pensee.distorsions[0])?.libelle;
+  // Un ancien brouillon sans chemin mais avec du texte s'ouvre en « mes propres mots ».
+  const chemin = alt.gabarit ?? (alt.texte.trim() ? -1 : undefined);
+  const g = chemin !== undefined && chemin >= 0 ? gabarits[chemin] : undefined;
+  const valeurs = alt.champs ?? {};
+  const cases = g ? casesARemplir(g) : [];
+  const remplies = cases.filter((c) => (valeurs[c] ?? '').trim() !== '').length;
+  const pret = g ? estComplet(g, valeurs) : chemin === -1 && alt.texte.trim() !== '';
+
   const croyanceAlt = alt.croyance ?? 50;
   const croyanceApres = session.pensee.croyanceApres ?? session.pensee.croyanceAvant;
   const intensiteApres = session.emotion.intensiteApres ?? session.emotion.intensiteAvant;
   const reponsesEcrites = session.reponses.filter((r) => r.texte.trim() !== '');
 
-  // Les modèles sont affichés avec le type de pensée choisi déjà rempli.
-  const typeChoisi = distorsion(session.pensee.distorsions[0])?.libelle;
-  const remplir = (g: string) =>
-    typeChoisi ? g.replace('[distorsion identifiée]', `le piège « ${typeChoisi} »`) : g;
-  const utiliserGabarit = (g: string) => {
-    const texte = remplir(g);
-    maj({ penseeAlternative: { ...alt, texte: alt.texte ? `${alt.texte}\n${texte}` : texte } });
+  const choisirChemin = (i: number) =>
+    maj({
+      penseeAlternative: { ...alt, gabarit: i, champs: {}, texte: i >= 0 ? composer(gabarits[i], {}, typeChoisi) : '' },
+    });
+  const changerChemin = () => maj({ penseeAlternative: { ...alt, gabarit: undefined, champs: {}, texte: '' } });
+  const retoucher = () => maj({ penseeAlternative: { ...alt, gabarit: -1 } });
+  const majCase = (cle: string, v: string) => {
+    if (!g) return;
+    const champs = { ...valeurs, [cle]: v };
+    maj({ penseeAlternative: { ...alt, champs, texte: composer(g, champs, typeChoisi) } });
   };
-  // Passages entre crochets pas encore remplacés (ex. « [reformulation] »).
-  const aRemplacer = alt.texte.match(/\[[^\]]+\]/g) ?? [];
+  const allerALaCase = (cle: string) => document.getElementById(`case-${cle}`)?.focus();
 
   const terminer = () =>
     avancerSiSansCrise([alt.texte], () =>
@@ -403,84 +425,173 @@ function EtapeAlternative({ session, maj, allerA, onSos, avancerSiSansCrise }: P
       <Progression valeur={4} max={5} />
       <div className="contenu">
         <div className="encart">
-          <p className="doux petit">Ta pensée de départ</p>
-          <p>« {session.pensee.texte} »</p>
-        </div>
-
-        {reponsesEcrites.length > 0 ? (
-          <details className="carte">
-            <summary>Relire mes réponses</summary>
-            {reponsesEcrites.map((r) => (
-              <div key={r.questionId}>
-                <p className="doux petit">{question(r.questionId)?.texte}</p>
-                <p>{r.texte}</p>
-              </div>
-            ))}
-          </details>
-        ) : null}
-
-        <div>
-          <h3>Pour t'aider à formuler</h3>
-          <p className="doux petit" style={{ marginBottom: 8 }}>
-            Touche un modèle pour l'ajouter, puis remplace les passages entre crochets. Le but n'est pas de « penser positif
-            », mais d'être aussi réaliste que possible.
+          <p>
+            🌿 <strong>Tu as fait le plus dur.</strong> Maintenant, construisons ensemble une pensée plus douce et plus
+            juste. Elle n'a pas besoin d'être parfaite, juste un peu plus proche de la réalité.
           </p>
-          <div className="liste">
-            {gabarits.map((g) => (
-              <button key={g} className="carte carte-cliquable petit" onClick={() => utiliserGabarit(g)}>
-                {remplir(g)}
-              </button>
-            ))}
-          </div>
         </div>
-
-        <label>
-          Ma pensée alternative
-          <textarea
-            value={alt.texte}
-            onChange={(e) => maj({ penseeAlternative: { ...alt, texte: e.target.value } })}
-            placeholder="Une façon plus équilibrée de voir la situation…"
-          />
-        </label>
-        {aRemplacer.length > 0 ? (
-          <p className="encart alerte petit">
-            Il reste {aRemplacer.length > 1 ? 'des passages' : 'un passage'} entre crochets à remplacer par tes mots :{' '}
-            {aRemplacer.join(', ')}
-          </p>
-        ) : null}
 
         <details className="carte">
-          <summary>Vérifier avant de valider</summary>
-          <ul className="doux">
-            {verification.map((v) => (
-              <li key={v}>{v}</li>
-            ))}
-          </ul>
+          <summary>Ta pensée de départ{reponsesEcrites.length > 0 ? ' et tes réponses' : ''}</summary>
+          <p>« {session.pensee.texte} »</p>
+          {reponsesEcrites.map((r) => (
+            <div key={r.questionId}>
+              <p className="doux petit">{question(r.questionId)?.texte}</p>
+              <p>{r.texte}</p>
+            </div>
+          ))}
         </details>
 
-        <Curseur
-          libelle="Je crois à cette nouvelle pensée"
-          unite=" %"
-          valeur={croyanceAlt}
-          onChange={(v) => maj({ penseeAlternative: { ...alt, croyance: v } })}
-        />
-        <Curseur
-          libelle="Je crois maintenant à la pensée de départ"
-          unite=" %"
-          valeur={croyanceApres}
-          onChange={(v) => maj({ pensee: { ...session.pensee, croyanceApres: v } })}
-        />
-        <Curseur
-          libelle={`${session.emotion.libelle} maintenant`}
-          valeur={intensiteApres}
-          onChange={(v) => maj({ emotion: { ...session.emotion, intensiteApres: v } })}
-        />
+        {chemin === undefined ? (
+          <div>
+            <h3>Par où veux-tu commencer ?</h3>
+            <p className="doux petit" style={{ marginBottom: 10 }}>
+              Choisis le chemin qui te parle le plus. Tu pourras en changer.
+            </p>
+            <div className="liste">
+              {gabarits.map((x, i) => (
+                <button key={x.titre} className="carte carte-cliquable chemin" onClick={() => choisirChemin(i)}>
+                  <span className="chemin-emoji" aria-hidden="true">
+                    {x.emoji}
+                  </span>
+                  <span>
+                    <strong>{x.titre}</strong>
+                    <span className="doux petit" style={{ display: 'block' }}>
+                      {composer(x, {}, typeChoisi)}
+                    </span>
+                  </span>
+                </button>
+              ))}
+              <button className="carte carte-cliquable chemin" onClick={() => choisirChemin(-1)}>
+                <span className="chemin-emoji" aria-hidden="true">
+                  ✍️
+                </span>
+                <span>
+                  <strong>Avec mes propres mots</strong>
+                  <span className="doux petit" style={{ display: 'block' }}>
+                    J'écris librement ma nouvelle pensée.
+                  </span>
+                </span>
+              </button>
+            </div>
+          </div>
+        ) : null}
+
+        {g ? (
+          <>
+            <div className="carte phrase-vivante" aria-live="polite">
+              <p className="doux petit">
+                {g.emoji} {g.titre}
+              </p>
+              <p className="phrase">
+                {segments(g, valeurs, typeChoisi).map((m, i) => {
+                  if ('texte' in m) return <span key={i}>{m.texte}</span>;
+                  if (m.cle === CLE_PIEGE) return <span key={i} className="case">{m.valeur}</span>;
+                  return (
+                    // Un <span> (et non un <button>) pour que la case s'écoule dans la phrase comme du texte.
+                    <span
+                      key={i}
+                      role="button"
+                      tabIndex={0}
+                      className={`case${m.valeur ? '' : ' vide'}`}
+                      onClick={() => allerALaCase(m.cle)}
+                      onKeyDown={(e) => e.key === 'Enter' && allerALaCase(m.cle)}
+                    >
+                      {m.valeur || '…'}
+                    </span>
+                  );
+                })}
+              </p>
+              <p className="doux petit">
+                {pret ? '✨ Ta nouvelle pensée est prête. Relis-la doucement.' : `${remplies} case${remplies > 1 ? 's' : ''} sur ${cases.length} remplie${remplies > 1 ? 's' : ''}`}
+              </p>
+            </div>
+
+            {cases.map((cle) => (
+              <label key={cle}>
+                {g.champs[cle]?.question ?? cle}
+                <input
+                  id={`case-${cle}`}
+                  type="text"
+                  value={valeurs[cle] ?? ''}
+                  onChange={(e) => majCase(cle, e.target.value)}
+                  placeholder={`ex. : ${g.champs[cle]?.exemple ?? ''}`}
+                  autoComplete="off"
+                />
+              </label>
+            ))}
+
+            <div className="puces">
+              <button className="puce" onClick={changerChemin}>
+                ↩︎ Changer de chemin
+              </button>
+              {pret ? (
+                <button className="puce" onClick={retoucher}>
+                  ✍️ Retoucher avec mes mots
+                </button>
+              ) : null}
+            </div>
+          </>
+        ) : null}
+
+        {chemin === -1 ? (
+          <>
+            <label>
+              ✍️ Ta nouvelle pensée, avec tes mots
+              <textarea
+                value={alt.texte}
+                onChange={(e) => maj({ penseeAlternative: { ...alt, texte: e.target.value } })}
+                placeholder="Une façon un peu plus douce et plus juste de voir la situation…"
+              />
+            </label>
+            <div className="puces">
+              <button className="puce" onClick={changerChemin}>
+                ↩︎ Changer de chemin
+              </button>
+            </div>
+          </>
+        ) : null}
+
+        {pret ? (
+          <>
+            <details className="carte">
+              <summary>💭 Petit check-up avant de valider</summary>
+              <ul className="doux">
+                {verification.map((v) => (
+                  <li key={v}>{v}</li>
+                ))}
+              </ul>
+            </details>
+
+            <h3>Et maintenant, où en es-tu ?</h3>
+            <Curseur
+              libelle="Tu crois à ta nouvelle pensée"
+              unite=" %"
+              valeur={croyanceAlt}
+              onChange={(v) => maj({ penseeAlternative: { ...alt, croyance: v } })}
+            />
+            <Curseur
+              libelle="Tu crois encore à ta pensée de départ"
+              unite=" %"
+              valeur={croyanceApres}
+              onChange={(v) => maj({ pensee: { ...session.pensee, croyanceApres: v } })}
+            />
+            <Curseur
+              libelle={`${session.emotion.libelle || 'Ton émotion'} en ce moment`}
+              valeur={intensiteApres}
+              emoji={emojiIntensite(intensiteApres)}
+              onChange={(v) => maj({ emotion: { ...session.emotion, intensiteApres: v } })}
+            />
+          </>
+        ) : null}
       </div>
-      <div className="actions">
-        <button className="bouton" disabled={alt.texte.trim() === '' || aRemplacer.length > 0} onClick={terminer}>
-          Voir mon bilan
-        </button>
-      </div>
+      {pret ? (
+        <div className="actions">
+          <button className="bouton" onClick={terminer}>
+            Voir mon bilan ✨
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 }

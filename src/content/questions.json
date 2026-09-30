@@ -1799,29 +1799,223 @@
   ],
   "gabarits": {
     "anxiete": [
-      "Il est possible que [scénario redouté], mais il est plus probable que [scénario réaliste], et si le pire arrivait, je pourrais [ressource identifiée].",
-      "Je ne peux pas être sûr à 100 % de [ce qui m'inquiète], mais je peux [action concrète], et le reste, je ne le contrôle pas entièrement.",
-      "Dans cette pensée, je reconnais [distorsion identifiée] ; en tenant compte des faits, une version plus juste serait : [reformulation]."
+      {
+        "titre": "Le scénario le plus probable",
+        "emoji": "🧭",
+        "phrase": "Il est possible que [redoute], mais il est plus probable que [probable], et si le pire arrivait, je pourrais [ressource].",
+        "champs": {
+          "redoute": {
+            "question": "Qu'est-ce que tu redoutes ?",
+            "exemple": "la réunion se passe mal"
+          },
+          "probable": {
+            "question": "Qu'est-ce qui va le plus probablement se passer ?",
+            "exemple": "on fasse simplement le point"
+          },
+          "ressource": {
+            "question": "Si le pire arrivait, comment pourrais-tu faire face ?",
+            "exemple": "en parler à un collègue de confiance"
+          }
+        }
+      },
+      {
+        "titre": "Accepter de ne pas tout savoir",
+        "emoji": "🌊",
+        "phrase": "Je ne peux pas être sûr à 100 % de [incertain], mais je peux [action], et le reste, je ne le contrôle pas entièrement.",
+        "champs": {
+          "incertain": {
+            "question": "Qu'est-ce qui reste incertain ?",
+            "exemple": "ce que pensera ma cheffe"
+          },
+          "action": {
+            "question": "Quelle petite chose est en ton pouvoir ?",
+            "exemple": "préparer deux ou trois points clés"
+          }
+        }
+      },
+      {
+        "titre": "Démasquer le piège",
+        "emoji": "🔍",
+        "phrase": "Dans cette pensée, je reconnais [piege] ; en tenant compte des faits, une version plus juste serait : [reformulation].",
+        "champs": {
+          "reformulation": {
+            "question": "Avec les faits en main, comment le dirais-tu ?",
+            "exemple": "cette réunion compte, mais ce n'est pas un verdict sur moi"
+          }
+        }
+      }
     ],
     "colere": [
-      "Je ne connais pas les intentions réelles de [personne], mais il est possible que [explication alternative] ; ce qui compte pour moi, c'est [ce que je veux vraiment obtenir].",
-      "Cette règle que j'attendais n'est peut-être pas partagée par tout le monde ; ce qui serait juste et utile maintenant, c'est [action ou message concret].",
-      "Dans ma colère, je reconnais [distorsion identifiée] ; en tenant compte des faits, une version plus posée serait : [reformulation]."
+      {
+        "titre": "Une autre explication",
+        "emoji": "🤝",
+        "phrase": "Je ne connais pas les intentions réelles de [personne], mais il est possible que [explication] ; ce qui compte pour moi, c'est [besoin].",
+        "champs": {
+          "personne": {
+            "question": "De qui s'agit-il ?",
+            "exemple": "mon collègue"
+          },
+          "explication": {
+            "question": "Quelle autre explication serait possible ?",
+            "exemple": "il était débordé et n'y a pas pensé"
+          },
+          "besoin": {
+            "question": "Qu'est-ce qui compte vraiment pour toi ici ?",
+            "exemple": "que mon travail soit reconnu"
+          }
+        }
+      },
+      {
+        "titre": "Ma règle, pas celle de tous",
+        "emoji": "⚖️",
+        "phrase": "Cette règle que j'attendais n'est peut-être pas partagée par tout le monde ; ce qui serait juste et utile maintenant, c'est [action].",
+        "champs": {
+          "action": {
+            "question": "Qu'est-ce qui serait juste et utile maintenant ?",
+            "exemple": "lui en parler calmement demain"
+          }
+        }
+      },
+      {
+        "titre": "Démasquer le piège",
+        "emoji": "🔍",
+        "phrase": "Dans ma colère, je reconnais [piege] ; en tenant compte des faits, une version plus posée serait : [reformulation].",
+        "champs": {
+          "reformulation": {
+            "question": "Avec un peu de recul, comment le dirais-tu ?",
+            "exemple": "je suis déçu, et je peux le dire sans attaquer"
+          }
+        }
+      }
     ],
     "culpabilite": [
-      "J'ai ma part de responsabilité dans [ce qui s'est passé], mais [autres facteurs] y ont aussi contribué ; ce que je peux faire maintenant, c'est [réparation ou changement concret].",
-      "Avec ce que je savais à ce moment-là, ma décision était compréhensible ; ce que je ferais différemment aujourd'hui, c'est [ajustement], sans en tirer une conclusion sur toute ma valeur.",
-      "Dans cette culpabilité, je reconnais [distorsion identifiée] ; en tenant compte des faits, une version plus juste serait : [reformulation]."
+      {
+        "titre": "Ma juste part",
+        "emoji": "🧩",
+        "phrase": "J'ai ma part de responsabilité dans [situation], mais [facteurs] y ont aussi contribué ; ce que je peux faire maintenant, c'est [reparation].",
+        "champs": {
+          "situation": {
+            "question": "De quoi parle-t-on ?",
+            "exemple": "cet oubli"
+          },
+          "facteurs": {
+            "question": "Qu'est-ce qui a aussi joué, en dehors de toi ?",
+            "exemple": "la fatigue et une semaine chargée"
+          },
+          "reparation": {
+            "question": "Quelle réparation ou quel petit pas est possible ?",
+            "exemple": "l'appeler pour m'excuser"
+          }
+        }
+      },
+      {
+        "titre": "Avec ce que je savais alors",
+        "emoji": "🕰️",
+        "phrase": "Avec ce que je savais à ce moment-là, ma décision était compréhensible ; ce que je ferais différemment aujourd'hui, c'est [ajustement], sans en tirer une conclusion sur toute ma valeur.",
+        "champs": {
+          "ajustement": {
+            "question": "Qu'est-ce que tu ferais différemment aujourd'hui ?",
+            "exemple": "noter les dates importantes"
+          }
+        }
+      },
+      {
+        "titre": "Démasquer le piège",
+        "emoji": "🔍",
+        "phrase": "Dans cette culpabilité, je reconnais [piege] ; en tenant compte des faits, une version plus juste serait : [reformulation].",
+        "champs": {
+          "reformulation": {
+            "question": "Avec douceur et honnêteté, comment le dirais-tu ?",
+            "exemple": "j'ai fait une erreur, et je reste quelqu'un qui tient aux autres"
+          }
+        }
+      }
     ],
     "tristesse": [
-      "Ce moment est difficile et [élément concret] va mal, mais [élément qui nuance] existe aussi ; une petite chose que je peux faire maintenant, c'est [action minime].",
-      "Je ne peux pas être certain que rien ne changera ; par le passé, [exemple de changement vécu] s'est produit alors que je ne l'imaginais pas.",
-      "Dans cette tristesse, je reconnais [distorsion identifiée] ; en tenant compte de l'ensemble, une version plus juste serait : [reformulation]."
+      {
+        "titre": "Il y a aussi autre chose",
+        "emoji": "🌤️",
+        "phrase": "Ce moment est difficile et [difficile] ne va pas bien, mais [nuance] existe aussi ; une petite chose que je peux faire maintenant, c'est [petitpas].",
+        "champs": {
+          "difficile": {
+            "question": "Qu'est-ce qui ne va pas bien en ce moment ?",
+            "exemple": "le travail"
+          },
+          "nuance": {
+            "question": "Qu'est-ce qui tient encore debout, même un peu ?",
+            "exemple": "l'amitié de Léa"
+          },
+          "petitpas": {
+            "question": "Quelle toute petite chose te ferait du bien ?",
+            "exemple": "sortir marcher dix minutes"
+          }
+        }
+      },
+      {
+        "titre": "Les choses peuvent changer",
+        "emoji": "🌱",
+        "phrase": "Je ne peux pas être certain que rien ne changera ; par le passé, [changement] alors que je ne l'imaginais pas.",
+        "champs": {
+          "changement": {
+            "question": "Qu'est-ce qui a déjà changé dans ta vie, sans que tu l'aies imaginé ?",
+            "exemple": "j'ai retrouvé l'envie de sortir après une période difficile"
+          }
+        }
+      },
+      {
+        "titre": "Démasquer le piège",
+        "emoji": "🔍",
+        "phrase": "Dans cette tristesse, je reconnais [piege] ; en tenant compte de l'ensemble, une version plus juste serait : [reformulation].",
+        "champs": {
+          "reformulation": {
+            "question": "En regardant l'ensemble, comment le dirais-tu ?",
+            "exemple": "c'est une période dure, pas toute ma vie"
+          }
+        }
+      }
     ],
     "estime": [
-      "J'ai [comportement précis], ce qui ne veut pas dire que je suis [étiquette globale] ; ce que ça montre, c'est [interprétation plus nuancée].",
-      "Mon standard ici était peut-être trop élevé ; un standard réaliste et bienveillant serait [reformulation du standard].",
-      "Dans ce jugement sur moi-même, je reconnais [distorsion identifiée] ; en tenant compte de l'ensemble, une version plus juste serait : [reformulation]."
+      {
+        "titre": "Un fait, pas une étiquette",
+        "emoji": "🏷️",
+        "phrase": "J'ai [comportement], ce qui ne veut pas dire que je suis [etiquette] ; ce que ça montre, c'est [nuance].",
+        "champs": {
+          "comportement": {
+            "question": "Qu'est-ce qui s'est passé, concrètement ?",
+            "exemple": "raté mon exposé"
+          },
+          "etiquette": {
+            "question": "Quelle étiquette t'es-tu collée ?",
+            "exemple": "nul"
+          },
+          "nuance": {
+            "question": "Qu'est-ce que ça montre, plus justement ?",
+            "exemple": "que je manquais de préparation cette fois"
+          }
+        }
+      },
+      {
+        "titre": "Un standard bienveillant",
+        "emoji": "🎯",
+        "phrase": "Mon standard ici était peut-être trop élevé ; un standard réaliste et bienveillant serait [standard].",
+        "champs": {
+          "standard": {
+            "question": "Quel standard pourrais-tu tenir la plupart du temps ?",
+            "exemple": "de faire de mon mieux avec le temps que j'ai"
+          }
+        }
+      },
+      {
+        "titre": "Démasquer le piège",
+        "emoji": "🔍",
+        "phrase": "Dans ce jugement sur moi-même, je reconnais [piege] ; en tenant compte de l'ensemble, une version plus juste serait : [reformulation].",
+        "champs": {
+          "reformulation": {
+            "question": "Avec bienveillance, comment le dirais-tu ?",
+            "exemple": "j'ai des points à travailler, comme tout le monde"
+          }
+        }
+      }
     ]
   },
   "verification": {
