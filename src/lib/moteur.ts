@@ -89,14 +89,19 @@ export function distorsionMoinsRecente(
   return candidats[Math.floor(rng() * candidats.length)].id;
 }
 
-/** Suggère la distorsion dont les mots-clés apparaissent le plus dans la pensée (F14). */
+/**
+ * Suggère la distorsion dont les mots-clés apparaissent le plus dans la pensée (F14).
+ * Une expression de plusieurs mots compte plus qu'un mot isolé : elle est plus spécifique.
+ */
 export function suggererDistorsion(texte: string, distorsions: Distorsion[]): string | null {
   const t = normaliser(texte);
   if (!t) return null;
   let meilleure: string | null = null;
   let meilleurScore = 0;
   for (const d of distorsions) {
-    const score = d.signaux.filter((s) => contientMotCle(t, s)).length;
+    const score = d.signaux
+      .filter((s) => contientMotCle(t, s))
+      .reduce((total, s) => total + normaliser(s).split(' ').length, 0);
     if (score > meilleurScore) {
       meilleure = d.id;
       meilleurScore = score;

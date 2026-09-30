@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "emotions": [
     "Anxiété",
     "Peur",
@@ -8,6 +8,7 @@
     "Panique",
     "Nervosité",
     "Tristesse",
+    "Découragement",
     "Colère",
     "Frustration",
     "Irritation",
@@ -37,8 +38,8 @@
     {
       "id": "tristesse",
       "libelle": "Tristesse",
-      "description": "Perte, dévalorisation, désespoir",
-      "active": false
+      "description": "Perte, humeur basse, découragement",
+      "active": true
     },
     {
       "id": "estime",
@@ -380,6 +381,98 @@
         "je ne me pardonne pas",
         "je me pardonne pas",
         "plus severe avec moi"
+      ]
+    },
+    {
+      "id": "filtre_mental",
+      "libelle": "Filtre mental",
+      "definition": "Ne retenir que le négatif d'une situation, en laissant de côté tout ce qui pourrait la nuancer.",
+      "exemple": "« Tout va mal dans ma vie en ce moment. »",
+      "signaux": [
+        "tout va mal",
+        "rien ne va",
+        "rien ne va plus",
+        "que du negatif",
+        "rien de bien",
+        "que des problemes",
+        "rien ne marche",
+        "journee pourrie",
+        "semaine pourrie",
+        "tout est nul"
+      ]
+    },
+    {
+      "id": "disqualification_positif",
+      "libelle": "Disqualification du positif",
+      "definition": "Minimiser ou écarter ce qui va bien, comme si ça ne comptait pas.",
+      "exemple": "« J'ai réussi, mais c'était juste de la chance. »",
+      "signaux": [
+        "ca ne compte pas",
+        "ca compte pas",
+        "c est normal",
+        "de la chance",
+        "j ai eu de la chance",
+        "n importe qui",
+        "pas grand chose",
+        "ce n est rien",
+        "c est rien",
+        "ca ne veut rien dire"
+      ]
+    },
+    {
+      "id": "surgeneralisation",
+      "libelle": "Généralisation",
+      "definition": "Étendre un moment difficile à toute sa vie, comme si c'était la règle.",
+      "exemple": "« Ça m'arrive toujours, ma vie est un échec. »",
+      "signaux": [
+        "toujours",
+        "jamais",
+        "tout le temps",
+        "a chaque fois",
+        "ma vie est",
+        "toute ma vie",
+        "comme d habitude"
+      ]
+    },
+    {
+      "id": "vision_negative_avenir",
+      "libelle": "Vision négative de l'avenir",
+      "definition": "Prédire que rien ne changera et que l'avenir sera forcément sombre.",
+      "exemple": "« Ça ne s'arrangera jamais. »",
+      "signaux": [
+        "rien ne changera",
+        "ca ne changera",
+        "ca changera jamais",
+        "ca ne s arrangera",
+        "ca s arrangera jamais",
+        "ca n ira jamais",
+        "ca ira jamais",
+        "aucun espoir",
+        "plus d espoir",
+        "pas d avenir",
+        "aucun avenir",
+        "a quoi bon",
+        "ca sert a rien",
+        "pour toujours"
+      ]
+    },
+    {
+      "id": "comparaison_rumination",
+      "libelle": "Comparaison et rumination",
+      "definition": "Se comparer à une version idéalisée (des autres, de soi, du passé), ou ressasser la même pensée sans rien en tirer de nouveau.",
+      "exemple": "« Les autres s'en sortent tous mieux que moi, j'y pense sans arrêt. »",
+      "signaux": [
+        "les autres",
+        "tout le monde",
+        "je me compare",
+        "mieux que moi",
+        "avant j etais",
+        "avant c etait",
+        "je rumine",
+        "je ressasse",
+        "en boucle",
+        "sans arret",
+        "j y pense tout le temps"
       ]
     }
   ],
@@ -1223,6 +1316,220 @@
       "categorie": "cloture",
       "distorsions": [],
       "texte": "Qu'est-ce que je sais maintenant que je ne me disais pas au début de cette session ?"
+    },
+    {
+      "id": "tri-d01",
+      "problematique": "tristesse",
+      "categorie": "depart",
+      "distorsions": [],
+      "texte": "Qu'est-ce qui vient de se passer, exactement, juste avant que cette tristesse s'installe ?"
+    },
+    {
+      "id": "tri-d02",
+      "problematique": "tristesse",
+      "categorie": "depart",
+      "distorsions": [],
+      "texte": "Si je devais résumer cette pensée en une phrase, ce serait laquelle ?"
+    },
+    {
+      "id": "tri-d03",
+      "problematique": "tristesse",
+      "categorie": "depart",
+      "distorsions": [],
+      "texte": "Cette pensée parle-t-elle d'une perte, d'un échec, de moi-même, ou de l'avenir ?"
+    },
+    {
+      "id": "tri-fil01",
+      "problematique": "tristesse",
+      "categorie": "distorsion",
+      "distorsions": [
+        "filtre_mental"
+      ],
+      "texte": "Qu'est-ce que je ne prends pas en compte en ce moment, qui pourrait nuancer ce tableau ?"
+    },
+    {
+      "id": "tri-fil02",
+      "problematique": "tristesse",
+      "categorie": "distorsion",
+      "distorsions": [
+        "filtre_mental"
+      ],
+      "preuves": true,
+      "texte": "Si je faisais la liste complète de ma journée ou de ma semaine, est-ce que tout serait aussi négatif ?"
+    },
+    {
+      "id": "tri-fil03",
+      "problematique": "tristesse",
+      "categorie": "distorsion",
+      "distorsions": [
+        "filtre_mental",
+        "disqualification_positif"
+      ],
+      "preuves": true,
+      "texte": "Qu'est-ce qui s'est bien passé, même en petit, que j'ai tendance à effacer ?"
+    },
+    {
+      "id": "tri-dis01",
+      "problematique": "tristesse",
+      "categorie": "distorsion",
+      "distorsions": [
+        "disqualification_positif"
+      ],
+      "texte": "Est-ce que je minimise quelque chose de bien qui m'est arrivé (« ça ne compte pas », « c'est normal », « j'ai eu de la chance ») ?"
+    },
+    {
+      "id": "tri-dis02",
+      "problematique": "tristesse",
+      "categorie": "distorsion",
+      "distorsions": [
+        "disqualification_positif"
+      ],
+      "preuves": true,
+      "texte": "Si quelqu'un d'autre avait accompli la même chose, la reconnaîtrais-je comme une réussite ?"
+    },
+    {
+      "id": "tri-dis03",
+      "problematique": "tristesse",
+      "categorie": "distorsion",
+      "distorsions": [
+        "disqualification_positif"
+      ],
+      "texte": "Qu'est-ce qui m'empêche de laisser cette chose positive compter vraiment ?"
+    },
+    {
+      "id": "tri-gen01",
+      "problematique": "tristesse",
+      "categorie": "distorsion",
+      "distorsions": [
+        "surgeneralisation"
+      ],
+      "texte": "Est-ce que je généralise un moment difficile à toute ma vie, ou tout ira mal désormais ?"
+    },
+    {
+      "id": "tri-gen02",
+      "problematique": "tristesse",
+      "categorie": "distorsion",
+      "distorsions": [
+        "surgeneralisation",
+        "vision_negative_avenir"
+      ],
+      "preuves": true,
+      "texte": "Ai-je déjà vécu des périodes aussi sombres qui, pourtant, ont fini par changer ?"
+    },
+    {
+      "id": "tri-gen03",
+      "problematique": "tristesse",
+      "categorie": "distorsion",
+      "distorsions": [
+        "surgeneralisation"
+      ],
+      "texte": "Existe-t-il une nuance entre « tout va mal » et « ce moment précis est difficile » ?"
+    },
+    {
+      "id": "tri-ave01",
+      "problematique": "tristesse",
+      "categorie": "distorsion",
+      "distorsions": [
+        "vision_negative_avenir"
+      ],
+      "texte": "Suis-je en train de prédire que rien ne changera, comme si c'était déjà certain ?"
+    },
+    {
+      "id": "tri-ave02",
+      "problematique": "tristesse",
+      "categorie": "distorsion",
+      "distorsions": [
+        "vision_negative_avenir"
+      ],
+      "preuves": true,
+      "texte": "Sur quoi je base cette certitude que demain sera comme aujourd'hui ?"
+    },
+    {
+      "id": "tri-ave03",
+      "problematique": "tristesse",
+      "categorie": "distorsion",
+      "distorsions": [
+        "vision_negative_avenir"
+      ],
+      "preuves": true,
+      "texte": "Qu'est-ce qui a déjà changé, dans ma vie, alors que je pensais que ce serait toujours pareil ?"
+    },
+    {
+      "id": "tri-val01",
+      "problematique": "tristesse",
+      "categorie": "distorsion",
+      "distorsions": [
+        "devalorisation_globale"
+      ],
+      "texte": "Est-ce que je me juge sur un seul aspect de moi, en ignorant le reste ?"
+    },
+    {
+      "id": "tri-val02",
+      "problematique": "tristesse",
+      "categorie": "distorsion",
+      "distorsions": [
+        "devalorisation_globale"
+      ],
+      "texte": "Qu'est-ce que je dirais à quelqu'un que j'aime, s'il se parlait à lui-même comme je me parle là ?"
+    },
+    {
+      "id": "tri-val03",
+      "problematique": "tristesse",
+      "categorie": "distorsion",
+      "distorsions": [
+        "devalorisation_globale"
+      ],
+      "preuves": true,
+      "texte": "Quelles qualités, réussites ou relations ne rentrent pas dans ce jugement sévère que je porte sur moi ?"
+    },
+    {
+      "id": "tri-com01",
+      "problematique": "tristesse",
+      "categorie": "distorsion",
+      "distorsions": [
+        "comparaison_rumination"
+      ],
+      "texte": "Est-ce que je me compare à une version idéalisée de moi-même, des autres, ou du passé ?"
+    },
+    {
+      "id": "tri-com02",
+      "problematique": "tristesse",
+      "categorie": "distorsion",
+      "distorsions": [
+        "comparaison_rumination"
+      ],
+      "preuves": true,
+      "texte": "Cette pensée, je l'ai déjà eue combien de fois cette semaine ? Est-ce qu'y repenser encore m'apporte quelque chose de nouveau ?"
+    },
+    {
+      "id": "tri-com03",
+      "problematique": "tristesse",
+      "categorie": "distorsion",
+      "distorsions": [
+        "comparaison_rumination"
+      ],
+      "texte": "Qu'est-ce qui se passerait si je mettais cette pensée de côté pour l'instant, sans forcément la résoudre tout de suite ?"
+    },
+    {
+      "id": "tri-clo01",
+      "problematique": "tristesse",
+      "categorie": "cloture",
+      "distorsions": [],
+      "texte": "Compte tenu de tout ce que je viens de me dire, quelle serait une façon plus juste et plus complète de voir cette situation ?"
+    },
+    {
+      "id": "tri-clo02",
+      "problematique": "tristesse",
+      "categorie": "cloture",
+      "distorsions": [],
+      "texte": "Si un ami vivait exactement ce que je vis, avec les mêmes pensées, qu'est-ce que je lui dirais ?"
+    },
+    {
+      "id": "tri-clo03",
+      "problematique": "tristesse",
+      "categorie": "cloture",
+      "distorsions": [],
+      "texte": "Qu'est-ce qui reste possible, même en petit, aujourd'hui ?"
     }
   ],
   "gabarits": {
@@ -1240,6 +1547,11 @@
       "J'ai ma part de responsabilité dans [ce qui s'est passé], mais [autres facteurs] y ont aussi contribué ; ce que je peux faire maintenant, c'est [réparation ou changement concret].",
       "Avec ce que je savais à ce moment-là, ma décision était compréhensible ; ce que je ferais différemment aujourd'hui, c'est [ajustement], sans en tirer une conclusion sur toute ma valeur.",
       "Cette culpabilité vient de [distorsion identifiée] ; en tenant compte des faits, une version plus juste serait : [reformulation]."
+    ],
+    "tristesse": [
+      "Ce moment est difficile et [élément concret] va mal, mais [élément qui nuance] existe aussi ; une petite chose que je peux faire maintenant, c'est [action minime].",
+      "Je ne peux pas être certain que rien ne changera ; par le passé, [exemple de changement vécu] s'est produit alors que je ne l'imaginais pas.",
+      "Cette tristesse vient de [distorsion identifiée] ; en tenant compte de l'ensemble, une version plus juste serait : [reformulation]."
     ]
   },
   "verification": {
@@ -1257,6 +1569,11 @@
       "Est-ce que cette nouvelle pensée reconnaît ma part réelle de responsabilité, sans l'exagérer ni la nier complètement ?",
       "À combien j'y crois réellement, de 0 à 100 % ?",
       "Cette pensée m'aide-t-elle à réparer ou avancer, ou reste-t-elle une phrase que je me dis sans y croire ?"
+    ],
+    "tristesse": [
+      "Est-ce que cette nouvelle pensée tient compte de l'ensemble de la situation, pas seulement du côté positif forcé ?",
+      "À combien j'y crois réellement, de 0 à 100 % ?",
+      "Qu'est-ce que cette pensée me permettrait de faire, même une toute petite chose, dans les prochaines heures ?"
     ]
   },
   "emotionsVersProblematique": {
@@ -1270,7 +1587,9 @@
     "Irritation": "colere",
     "Frustration": "colere",
     "Culpabilité": "culpabilite",
-    "Honte": "culpabilite"
+    "Honte": "culpabilite",
+    "Tristesse": "tristesse",
+    "Découragement": "tristesse"
   },
   "distorsionsPrioritairesParEmotion": {
     "Honte": [

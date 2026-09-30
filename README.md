@@ -13,7 +13,7 @@ pensée alternative → bilan avant / après.
 | F1 | Premier lancement (méthode, avertissement) | ✅ |
 | F2 | Verrouillage par code (PBKDF2) + Face ID / Touch ID (WebAuthn), reverrouillage après 1 min en arrière-plan | ✅ |
 | F3 | Session guidée : situation, émotion + intensité, pensée + croyance | ✅ |
-| F4 | Problématiques : Anxiété, Colère et Culpabilité (proposée automatiquement selon l'émotion choisie, modifiable ; en cas de honte, les questions sur la valeur personnelle et les doubles standards sont privilégiées) ; les autres sont affichées « bientôt » | ✅ |
+| F4 | Problématiques : Anxiété, Colère, Culpabilité et Tristesse (proposée automatiquement selon l'émotion choisie, modifiable ; en cas de honte, les questions sur la valeur personnelle et les doubles standards sont privilégiées) ; les autres sont affichées « bientôt » | ✅ |
 | F5 | Moteur de questions (règles ci-dessous), une question par écran, passer, utile / pas utile | ✅ |
 | F6 | Pensée alternative : 3 gabarits, questions de vérification, nouvelles croyance et intensité | ✅ |
 | F7 | Bilan avant / après, message neutre, suggestion d'un professionnel si l'intensité reste élevée 3 fois de suite | ✅ |
@@ -65,4 +65,4 @@ Aucune autre dépendance, aucun appel réseau, aucune télémétrie (politique C
   verrouillage de l'iPhone et de l'application. Les sauvegardes, elles, sont chiffrées si un mot de passe est donné.
 - iOS peut effacer les données d'un site peu utilisé : l'application demande un stockage persistant, mais
   **la sauvegarde régulière reste indispensable**.
-- Pas encore : rappels (F12), statistiques (F11), fiches (F10), questions personnelles (F16), tristesse, estime de soi.
+- Pas encore : rappels (F12), statistiques (F11), fiches (F10), questions personnelles (F16), estime de soi.

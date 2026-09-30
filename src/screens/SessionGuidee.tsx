@@ -314,7 +314,12 @@ function EtapeQuestions({ session, maj, allerA, onSos, avancerSiSansCrise }: Pro
   };
 
   const typeQuestion =
-    q.categorie === 'depart' ? 'Pour commencer' : q.categorie === 'cloture' ? 'Pour prendre du recul' : distorsion(session.pensee.distorsions[0])?.libelle;
+    q.categorie === 'depart'
+      ? 'Pour commencer'
+      : q.categorie === 'cloture'
+        ? 'Pour prendre du recul'
+        : // Une question empruntée à une autre distorsion affiche son propre type.
+          distorsion(q.distorsions.includes(session.pensee.distorsions[0]) ? session.pensee.distorsions[0] : q.distorsions[0])?.libelle;
 
   return (
     <div className="page">
