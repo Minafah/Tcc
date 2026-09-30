@@ -14,7 +14,7 @@ const PAGES = [
     texte: [
       "Tu notes l'intensité de ton émotion et ta croyance dans la pensée avant et après : tu vois ce qui a bougé.",
       'Tu peux passer une question, marquer celles qui t\'aident, et reprendre plus tard : tout est enregistré au fur et à mesure.',
-      "Pour l'instant, l'application couvre l'anxiété et la colère.",
+      "Pour l'instant, l'application couvre l'anxiété, la colère et la culpabilité.",
     ],
   },
   {

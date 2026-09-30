@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Respiration } from '../components/Apaisement';
 import { AvantApres, Curseur, Entete, Progression, Puces } from '../components/ui';
-import { DISTORSIONS, EMOTIONS, EMOTIONS_VERS_PROBLEMATIQUE, GABARITS, PROBLEMATIQUES, QUESTIONS, VERIFICATION, distorsion, distorsionsDe, question } from '../lib/contenu';
+import { DISTORSIONS, DISTORSIONS_PRIORITAIRES, EMOTIONS, EMOTIONS_VERS_PROBLEMATIQUE, GABARITS, PROBLEMATIQUES, QUESTIONS, VERIFICATION, distorsion, distorsionsDe, question } from '../lib/contenu';
 import { detecterCrise } from '../lib/crise';
 import { historique } from '../lib/db';
 import { SEUIL_APAISEMENT, selectionnerQuestions, suggererDistorsion, suggererProfessionnel } from '../lib/moteur';
@@ -143,7 +143,11 @@ function EtapeSituation({ session, maj, allerA, onQuitter, onSos, avancerSiSansC
 
 function EtapePensee({ session, maj, allerA, onSos, avancerSiSansCrise }: PropsEtape) {
   const possibles = useMemo(() => distorsionsDe(session.problematique), [session.problematique]);
-  const suggestion = useMemo(() => suggererDistorsion(session.pensee.texte, possibles), [session.pensee.texte, possibles]);
+  // Règle 11.9 : certaines émotions (ex. honte) orientent d'abord vers certaines distorsions.
+  const prioritaires = (DISTORSIONS_PRIORITAIRES[session.emotion.libelle] ?? []).filter((id) =>
+    possibles.some((p) => p.id === id),
+  );
+  const suggestion = suggererDistorsion(session.pensee.texte, possibles) ?? prioritaires[0] ?? null;
   // Distorsion choisie par moi ; « auto » = laisser l'application proposer.
   const [choix, setChoix] = useState<string>(session.pensee.distorsions[0] ?? '');
   const [calcul, setCalcul] = useState(false);
@@ -158,7 +162,7 @@ function EtapePensee({ session, maj, allerA, onSos, avancerSiSansCrise }: PropsE
         questions: QUESTIONS,
         problematique: session.problematique,
         distorsion: choix && choix !== 'auto' ? choix : null,
-        distorsionsPossibles: possibles.map((x) => x.id),
+        distorsionsPossibles: prioritaires.length > 0 ? prioritaires : possibles.map((x) => x.id),
         historique: await historique(),
       });
       questionIds = selection.questionIds;
