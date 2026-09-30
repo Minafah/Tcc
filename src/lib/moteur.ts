@@ -19,6 +19,11 @@ export interface ParamsSelection {
   distorsionsPossibles: string[];
   /** Sessions terminées, de la plus récente à la plus ancienne. */
   historique: Session[];
+  /**
+   * Autres banques où piocher des questions de la même distorsion (règle 13.9 :
+   * l'estime de soi recoupe la tristesse et la culpabilité).
+   */
+  problematiquesAssociees?: string[];
   aleatoire?: () => number;
 }
 
@@ -41,7 +46,13 @@ export function selectionnerQuestions(p: ParamsSelection): Selection {
   const departs = banque.filter((q) => q.categorie === 'depart');
   const clotures = banque.filter((q) => q.categorie === 'cloture');
   const toutesDistorsions = banque.filter((q) => q.categorie === 'distorsion');
-  const deLaDistorsion = toutesDistorsions.filter((q) => q.distorsions.includes(distorsion));
+  const associees = new Set(p.problematiquesAssociees ?? []);
+  const deLaDistorsion = p.questions.filter(
+    (q) =>
+      q.categorie === 'distorsion' &&
+      q.distorsions.includes(distorsion) &&
+      (q.problematique === p.problematique || associees.has(q.problematique)),
+  );
 
   // 1 question de départ.
   const depart = choisir(departs, 1, bloquees, recentesGlobal, rng, true);
@@ -89,14 +100,19 @@ export function distorsionMoinsRecente(
   return candidats[Math.floor(rng() * candidats.length)].id;
 }
 
-/** Suggère la distorsion dont les mots-clés apparaissent le plus dans la pensée (F14). */
+/**
+ * Suggère la distorsion dont les mots-clés apparaissent le plus dans la pensée (F14).
+ * Une expression de plusieurs mots compte plus qu'un mot isolé : elle est plus spécifique.
+ */
 export function suggererDistorsion(texte: string, distorsions: Distorsion[]): string | null {
   const t = normaliser(texte);
   if (!t) return null;
   let meilleure: string | null = null;
   let meilleurScore = 0;
   for (const d of distorsions) {
-    const score = d.signaux.filter((s) => contientMotCle(t, s)).length;
+    const score = d.signaux
+      .filter((s) => contientMotCle(t, s))
+      .reduce((total, s) => total + normaliser(s).split(' ').length, 0);
     if (score > meilleurScore) {
       meilleure = d.id;
       meilleurScore = score;

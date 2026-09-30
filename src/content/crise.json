@@ -50,11 +50,29 @@
     "overdose",
     "avaler tous mes medicaments",
     "avaler toutes mes pilules",
-    "avaler tous les cachets"
+    "avaler tous les cachets",
+    "idees noires",
+    "plus aucun espoir",
+    "aucune issue",
+    "pas d issue",
+    "plus d issue",
+    "je n en peux plus de vivre"
   ],
   "ressources": [
-    { "numero": "3114", "libelle": "Numéro national de prévention du suicide", "detail": "Gratuit, 24 h/24, 7 j/7" },
-    { "numero": "15", "libelle": "SAMU", "detail": "Urgence médicale" },
-    { "numero": "112", "libelle": "Urgences européennes", "detail": "Depuis n'importe quel téléphone" }
+    {
+      "numero": "3114",
+      "libelle": "Numéro national de prévention du suicide",
+      "detail": "Gratuit, 24 h/24, 7 j/7"
+    },
+    {
+      "numero": "15",
+      "libelle": "SAMU",
+      "detail": "Urgence médicale"
+    },
+    {
+      "numero": "112",
+      "libelle": "Urgences européennes",
+      "detail": "Depuis n'importe quel téléphone"
+    }
   ]
 }

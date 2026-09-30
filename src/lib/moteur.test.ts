@@ -133,11 +133,11 @@ describe('suggererDistorsion', () => {
     ['Et si je tombais malade ? Je ne sais pas ce qui va se passer', 'incertitude'],
   ];
   it.each(cas)('« %s » → %s', (texte, attendu) => {
-    expect(suggererDistorsion(texte, DISTORSIONS)).toBe(attendu);
+    expect(suggererDistorsion(texte, distorsionsDe('anxiete'))).toBe(attendu);
   });
 
   it('ne suggère rien sans indice', () => {
-    expect(suggererDistorsion('Je suis fatigué ce soir', DISTORSIONS)).toBeNull();
+    expect(suggererDistorsion('Je suis fatigué ce soir', distorsionsDe('anxiete'))).toBeNull();
   });
 });
 
