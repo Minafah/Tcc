@@ -15,9 +15,10 @@ pensée alternative → bilan avant / après.
 | F3 | Session guidée : situation, émotion + intensité, pensée + croyance | ✅ |
 | F4 | Problématiques : Anxiété, Colère, Culpabilité, Tristesse, Estime de soi. Proposée automatiquement selon l'émotion choisie, toujours modifiable. Honte → valeur personnelle et doubles standards d'abord ; l'estime de soi peut aussi puiser dans les banques tristesse et culpabilité | ✅ |
 | F5 | Moteur de questions (règles ci-dessous), une question par écran, passer, utile / pas utile | ✅ |
+| F10 | Fiche « Comprendre ce piège » après le choix du type de pensée : ce que c'est, ce qui se passe dans le cerveau, le corps et l'esprit, et ce qui peut aider (26 pièges, dans `questions.json`) | ✅ |
 | F6 | Pensée alternative en atelier guidé : je choisis un « chemin » (ou mes propres mots), je réponds à de petites questions et la phrase se construit toute seule, sans crochets ; check-up de vérification, nouvelles croyance et intensité | ✅ |
 | F7 | Bilan avant / après, message neutre, suggestion d'un professionnel si l'intensité reste élevée 3 fois de suite | ✅ |
-| F8 | Journal : liste, recherche, filtre par émotion, détail, modification, suppression | ✅ |
+| F8 | Journal : liste, recherche, filtres (émotion, problématique), détail, modification ; suppression d'une session, de plusieurs à la fois (« Sélectionner ») ou du brouillon en cours depuis l'accueil | ✅ |
 | F9 | Bouton SOS sur chaque écran (3114, 15, 112, personnes de confiance, respiration, ancrage 5-4-3-2-1) et détection de mots de crise | ✅ |
 
 En plus, parce que c'est le premier risque du cahier des charges (perte des données) :

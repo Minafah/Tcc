@@ -9,10 +9,13 @@ import type { Session } from '../lib/types';
 export function Journal(props: {
   sessions: Session[];
   onOuvrir: (id: string) => void;
+  onSupprimer: (ids: string[]) => void;
   onRetour: () => void;
   onSos: () => void;
 }) {
   const [recherche, setRecherche] = useState('');
+  // Mode sélection : cocher plusieurs sessions pour les supprimer d'un coup.
+  const [selection, setSelection] = useState<Set<string> | null>(null);
   const [emotion, setEmotion] = useState('');
   const [problematique, setProblematique] = useState('');
   const problematiques = PROBLEMATIQUES.filter((p) => props.sessions.some((s) => s.problematique === p.id));
@@ -28,9 +31,36 @@ export function Journal(props: {
     return normaliser(textesLibres(s).join(' ')).includes(normaliser(recherche));
   });
 
+  const basculer = (id: string) => {
+    if (!selection) return;
+    const suivante = new Set(selection);
+    if (suivante.has(id)) suivante.delete(id);
+    else suivante.add(id);
+    setSelection(suivante);
+  };
+
+  const supprimerSelection = () => {
+    if (!selection || selection.size === 0) return;
+    const n = selection.size;
+    if (!confirm(`Supprimer définitivement ${n > 1 ? `ces ${n} sessions` : 'cette session'} ?`)) return;
+    props.onSupprimer([...selection]);
+    setSelection(null);
+  };
+
   return (
     <div className="page">
-      <Entete titre="Mon journal" onRetour={props.onRetour} onSos={props.onSos} />
+      <Entete
+        titre="Mon journal"
+        onRetour={props.onRetour}
+        onSos={props.onSos}
+        droite={
+          props.sessions.length > 0 ? (
+            <button className="puce" onClick={() => setSelection(selection ? null : new Set())}>
+              {selection ? 'Annuler' : 'Sélectionner'}
+            </button>
+          ) : null
+        }
+      />
       <div className="contenu">
         <input type="search" placeholder="Rechercher…" value={recherche} onChange={(e) => setRecherche(e.target.value)} />
         {problematiques.length > 1 ? (
@@ -57,8 +87,14 @@ export function Journal(props: {
         ) : (
           <div className="liste">
             {filtrees.map((s) => (
-              <button key={s.id} className="carte carte-cliquable" onClick={() => props.onOuvrir(s.id)}>
+              <button
+                key={s.id}
+                className={`carte carte-cliquable${selection?.has(s.id) ? ' selectionnee' : ''}`}
+                onClick={() => (selection ? basculer(s.id) : props.onOuvrir(s.id))}
+                aria-pressed={selection ? selection.has(s.id) : undefined}
+              >
                 <span className="doux petit">
+                  {selection ? <span aria-hidden="true">{selection.has(s.id) ? '☑︎ ' : '☐ '}</span> : null}
                   {formaterDate(s.date)} {s.statut === 'brouillon' ? <span className="badge">Brouillon</span> : null}
                 </span>
                 <strong>
@@ -71,6 +107,19 @@ export function Journal(props: {
           </div>
         )}
       </div>
+      {selection ? (
+        <div className="actions">
+          <button
+            className="bouton discret"
+            onClick={() => setSelection(selection.size === filtrees.length ? new Set() : new Set(filtrees.map((s) => s.id)))}
+          >
+            {selection.size === filtrees.length && filtrees.length > 0 ? 'Tout désélectionner' : 'Tout sélectionner'}
+          </button>
+          <button className="bouton danger" disabled={selection.size === 0} onClick={supprimerSelection}>
+            Supprimer{selection.size > 0 ? ` (${selection.size})` : ''}
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 }

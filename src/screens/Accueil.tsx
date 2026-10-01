@@ -7,6 +7,7 @@ export function Accueil(props: {
   derniere: Session | undefined;
   onNouvelle: () => void;
   onReprendre: () => void;
+  onSupprimerBrouillon: () => void;
   onJournal: () => void;
   onReglages: () => void;
   onSos: () => void;
@@ -29,13 +30,27 @@ export function Accueil(props: {
         </button>
 
         {brouillon ? (
-          <button className="carte carte-cliquable" onClick={props.onReprendre}>
-            <span className="badge">En cours</span>
-            <strong>Reprendre ma session</strong>
+          <div className="carte">
+            <span className="badge" style={{ alignSelf: 'flex-start' }}>
+              En cours
+            </span>
             <span className="doux petit extrait">
               {brouillon.pensee.texte || brouillon.situation || 'Session commencée'} · {formaterDate(brouillon.majLe)}
             </span>
-          </button>
+            <div className="puces">
+              <button className="puce" onClick={props.onReprendre}>
+                ▶︎ Reprendre ma session
+              </button>
+              <button
+                className="puce"
+                onClick={() => {
+                  if (confirm('Supprimer cette session en cours ?')) props.onSupprimerBrouillon();
+                }}
+              >
+                🗑 Supprimer
+              </button>
+            </div>
+          </div>
         ) : null}
 
         {derniere ? (

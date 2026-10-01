@@ -66,7 +66,14 @@
         "foutu",
         "fichu",
         "je ne m en remettrai"
-      ]
+      ],
+      "explication": {
+        "quoi": "Ton esprit saute directement au pire scénario et le traite comme s'il allait arriver, et comme si tu ne pourrais pas y faire face.",
+        "cerveau": "Le cerveau est d'abord un détecteur de dangers. Face à une incertitude, une petite structure appelée l'amygdale donne l'alerte avant même que la partie qui réfléchit (le cortex préfrontal) ait pu évaluer la situation. Pour lui, mieux vaut imaginer le pire « au cas où ».",
+        "corps": "L'alerte déclenche la réponse de stress : adrénaline, cœur qui accélère, souffle court, muscles tendus. Ces sensations semblent confirmer que quelque chose de grave arrive, ce qui nourrit encore le scénario.",
+        "esprit": "Plus on imagine un scénario en détail, plus il paraît probable. L'esprit finit par confondre « je peux l'imaginer » avec « ça va arriver ».",
+        "astuce": "Demande-toi quel est le scénario le plus probable, et pas seulement le pire."
+      }
     },
     {
       "id": "surestimation",
@@ -82,7 +89,14 @@
         "va arriver",
         "ca arrive toujours",
         "a coup sur"
-      ]
+      ],
+      "explication": {
+        "quoi": "Tu estimes qu'un évènement redouté est très probable, alors qu'il est surtout possible.",
+        "cerveau": "Le cerveau juge la probabilité d'une chose à la facilité avec laquelle elle lui vient en tête. Une peur souvent présente vient facilement… et paraît donc fréquente.",
+        "corps": "L'anxiété garde le corps en vigilance. Cette tension donne une impression de danger tout proche, qui gonfle encore l'estimation.",
+        "esprit": "On se souvient des rares fois où la peur s'est réalisée, et on oublie toutes celles où rien n'est arrivé.",
+        "astuce": "Compte : sur toutes les fois où tu as eu cette peur, combien de fois s'est-elle vraiment réalisée ?"
+      }
     },
     {
       "id": "incertitude",
@@ -99,7 +113,14 @@
         "je dois savoir",
         "on ne sait jamais",
         "imprevu"
-      ]
+      ],
+      "explication": {
+        "quoi": "Ne pas savoir devient presque insupportable, au point de vouloir une certitude totale avant de pouvoir avancer.",
+        "cerveau": "Pour le cerveau, l'inconnu ressemble à une menace : il ne peut rien prévoir, donc il reste en alerte. Chercher une certitude est sa façon d'essayer d'éteindre l'alarme.",
+        "corps": "Cette vigilance prolongée entretient la tension : difficulté à se détendre, sommeil agité, nœud dans l'estomac.",
+        "esprit": "L'esprit enchaîne les « et si… ? » pour tout anticiper. Chaque réponse soulage un instant, puis un nouveau « et si » arrive : c'est une boucle.",
+        "astuce": "Rappelle-toi une incertitude que tu as déjà traversée sans tout contrôler."
+      }
     },
     {
       "id": "anticipation",
@@ -117,7 +138,14 @@
         "va mal finir",
         "ca ne marchera pas",
         "ca va pas marcher"
-      ]
+      ],
+      "explication": {
+        "quoi": "Tu prédis que les choses vont mal se passer, comme si l'avenir était déjà écrit.",
+        "cerveau": "Le cerveau fabrique sans cesse des prédictions pour se préparer. Quand on est anxieux, il privilégie les prédictions négatives, qu'il juge plus utiles pour se protéger.",
+        "corps": "Le corps réagit à la prédiction comme si elle était réelle : stress, tension, envie d'éviter la situation.",
+        "esprit": "En évitant la situation ou en se préparant au pire, on n'a jamais l'occasion de vérifier que la prédiction était fausse… et elle se renforce.",
+        "astuce": "Souviens-toi de la dernière fois où tu as prédit un échec : comment cela s'est-il vraiment passé ?"
+      }
     },
     {
       "id": "ressources",
@@ -135,7 +163,14 @@
         "je ne supporterai",
         "je vais craquer",
         "trop pour moi"
-      ]
+      ],
+      "explication": {
+        "quoi": "Tu te sens incapable de faire face, en oubliant ce que tu as déjà traversé et les appuis qui existent autour de toi.",
+        "cerveau": "Sous stress, la partie du cerveau qui planifie et trouve des solutions (le cortex préfrontal) fonctionne moins bien. Sur le moment, on a donc vraiment plus de mal à voir ses propres ressources.",
+        "corps": "Fatigue, gorge serrée, jambes coupées : le corps envoie des signaux de « trop », qui donnent l'impression de ne pas avoir la force.",
+        "esprit": "On se juge sur ses pires moments, en mettant de côté ses compétences habituelles.",
+        "astuce": "Imagine concrètement, étape par étape, ce que tu ferais si ça arrivait."
+      }
     },
     {
       "id": "lecture_pensee",
@@ -159,7 +194,14 @@
         "croient que je",
         "se moque",
         "se moquent"
-      ]
+      ],
+      "explication": {
+        "quoi": "Tu crois savoir ce que les autres pensent de toi, sans l'avoir vérifié.",
+        "cerveau": "Nous sommes faits pour deviner les intentions des autres : c'est utile pour vivre ensemble. Mais quand on est inquiet, ce « radar social » lit les signes ambigus (un regard, un silence) dans le sens négatif.",
+        "corps": "Se sentir jugé déclenche les mêmes réactions qu'une menace : chaleur, rougeur, cœur qui bat, envie de se faire tout petit.",
+        "esprit": "On prend ses propres doutes sur soi et on les place dans la tête de l'autre.",
+        "astuce": "Cherche une autre explication, moins centrée sur toi, à son comportement."
+      }
     },
     {
       "id": "tout_ou_rien",
@@ -176,7 +218,14 @@
         "parfait",
         "echec total",
         "tout le monde"
-      ]
+      ],
+      "explication": {
+        "quoi": "Tu vois les choses en noir ou blanc : réussite totale ou échec total, sans nuance entre les deux.",
+        "cerveau": "Classer vite en deux catégories demande peu d'effort au cerveau. Sous l'effet d'une émotion forte, il simplifie encore plus et perd les nuances.",
+        "corps": "Quand le corps est en alerte, il pousse vers des réactions rapides et tranchées, pas vers la réflexion nuancée.",
+        "esprit": "Des mots comme « toujours », « jamais », « complètement » sont des signaux : ils transforment un moment en vérité absolue.",
+        "astuce": "Place la situation sur une échelle de 0 à 100 plutôt qu'en « tout ou rien »."
+      }
     },
     {
       "id": "imperatifs",
@@ -192,7 +241,14 @@
         "oblige",
         "obligee",
         "pas le droit"
-      ]
+      ],
+      "explication": {
+        "quoi": "Tu te fixes des règles rigides (« je dois », « il faut ») et tu te sens en faute dès que tu ne les tiens pas.",
+        "cerveau": "Ces règles sont des raccourcis appris (éducation, expériences passées) que le cerveau applique automatiquement, sans vérifier s'ils sont adaptés à la situation.",
+        "corps": "Une règle non respectée se ressent : pression, tension, parfois culpabilité ou colère dans le corps.",
+        "esprit": "« Je dois » transforme une préférence en obligation, et ne laisse plus de place à l'imperfection.",
+        "astuce": "Remplace « je dois » par « je préférerais », et observe ce que ça change."
+      }
     },
     {
       "id": "lecture_pensee_intentions",
@@ -216,7 +272,14 @@
         "ils cherchent",
         "il veut me",
         "elle veut me"
-      ]
+      ],
+      "explication": {
+        "quoi": "Tu es sûr de connaître les intentions de l'autre (« il l'a fait exprès ») sans l'avoir vérifié.",
+        "cerveau": "Face à un comportement blessant, le cerveau cherche vite une cause. Sous l'effet de la colère, il choisit souvent l'explication la plus hostile : c'est un réflexe de protection.",
+        "corps": "La colère prépare au combat : mâchoires serrées, chaleur qui monte, poings fermés, cœur qui s'accélère.",
+        "esprit": "Une fois l'intention « décidée », on ne remarque plus que ce qui la confirme.",
+        "astuce": "Cherche au moins deux autres explications possibles à son comportement."
+      }
     },
     {
       "id": "injustice_regles_personnelles",
@@ -238,7 +301,14 @@
         "inacceptable",
         "pas le droit",
         "manque de respect"
-      ]
+      ],
+      "explication": {
+        "quoi": "Tu juges la situation à partir de tes propres règles (« il devrait », « ça ne se fait pas »), comme si tout le monde les partageait.",
+        "cerveau": "Le sentiment d'injustice touche des circuits du cerveau proches de ceux de la douleur : être traité injustement fait vraiment mal, et le cerveau réclame réparation.",
+        "corps": "Tension, chaleur qui monte, envie de réagir tout de suite.",
+        "esprit": "Tes valeurs sont précieuses. Mais quand elles deviennent des règles absolues pour les autres, chaque écart est vécu comme une attaque.",
+        "astuce": "Demande-toi si cette règle est partagée par tous, ou si c'est ton exigence personnelle."
+      }
     },
     {
       "id": "generalisation_etiquetage",
@@ -261,7 +331,14 @@
         "conne",
         "nul",
         "nulle"
-      ]
+      ],
+      "explication": {
+        "quoi": "Tu étends un comportement ponctuel à toute la personne et tu lui colles une étiquette (« c'est un égoïste »).",
+        "cerveau": "Le cerveau aime les catégories simples : une étiquette permet de prévoir vite. Mais elle efface tout ce qui ne colle pas avec elle.",
+        "corps": "Chaque fois que tu repenses à l'étiquette, la colère et la tension reviennent, comme si la blessure se rejouait.",
+        "esprit": "« Toujours », « jamais » : l'esprit fabrique une règle à partir de quelques exemples.",
+        "astuce": "Pense à une fois où cette personne a agi autrement."
+      }
     },
     {
       "id": "raisonnement_emotionnel",
@@ -279,7 +356,14 @@
         "ca me rend fou",
         "ca me rend folle",
         "j ai la rage"
-      ]
+      ],
+      "explication": {
+        "quoi": "Tu prends l'intensité de ce que tu ressens pour une preuve : « je le sens, donc c'est vrai ».",
+        "cerveau": "Les émotions arrivent plus vite que la réflexion. Quand elles sont fortes, la partie du cerveau qui analyse les faits a moins de place pour s'exprimer.",
+        "corps": "Une émotion intense est d'abord une expérience physique (chaleur, tension, souffle court) ; ce ressenti très concret donne l'impression d'une vérité.",
+        "esprit": "On confond « je me sens trahi » et « j'ai été trahi ». Le ressenti est réel ; son interprétation, elle, mérite d'être vérifiée.",
+        "astuce": "Demande-toi ce qui resterait des faits si tu enlevais l'intensité de l'émotion."
+      }
     },
     {
       "id": "consequences_reaction",
@@ -298,7 +382,14 @@
         "ses quatre verites",
         "je vais repondre",
         "je vais claquer"
-      ]
+      ],
+      "explication": {
+        "quoi": "Tu es prêt à agir sous le coup de la colère, sans mesurer ce que ta réaction va produire.",
+        "cerveau": "La colère pousse à l'action immédiate. Le « frein » du cerveau, qui pèse les conséquences, met quelques instants à se remettre en route.",
+        "corps": "L'énergie de la colère est bien réelle (adrénaline, muscles prêts) : elle cherche une sortie rapide.",
+        "esprit": "Sur le moment, réagir paraît soulager. Avec le recul, on voit souvent que la réaction a éloigné ce qu'on voulait vraiment obtenir.",
+        "astuce": "Accorde-toi un délai : la vague d'une émotion redescend souvent en quelques minutes."
+      }
     },
     {
       "id": "personnalisation",
@@ -313,7 +404,14 @@
         "j aurais pu l empecher",
         "j aurais pu eviter",
         "par ma faute"
-      ]
+      ],
+      "explication": {
+        "quoi": "Tu t'attribues toute la responsabilité d'une situation, en oubliant les autres facteurs qui ont joué.",
+        "cerveau": "Le cerveau cherche les causes pour éviter que ça recommence. Se mettre au centre donne une illusion de contrôle : « si c'est ma faute, je peux l'empêcher ».",
+        "corps": "La culpabilité pèse : poitrine serrée, épaules basses, envie de se cacher.",
+        "esprit": "On voit très bien sa propre part, beaucoup moins tout le reste : les circonstances, les autres, le hasard.",
+        "astuce": "Imagine un « camembert » des causes : quelle part te revient vraiment ?"
+      }
     },
     {
       "id": "jugement_retrospectif",
@@ -328,7 +426,14 @@
         "j aurais du le voir venir",
         "j aurais pu savoir",
         "j aurais du comprendre"
-      ]
+      ],
+      "explication": {
+        "quoi": "Tu juges une décision passée avec des informations que tu n'avais pas au moment d'agir.",
+        "cerveau": "Une fois qu'on connaît la fin de l'histoire, le cerveau réécrit le passé comme si cette fin avait été évidente. On appelle ça le biais rétrospectif, et tout le monde y est sujet.",
+        "corps": "Le regret revient en boucle, avec la même boule au ventre à chaque fois.",
+        "esprit": "« J'aurais dû savoir » suppose qu'on pouvait lire l'avenir.",
+        "astuce": "Rappelle-toi ce que tu savais vraiment, et dans quel état tu étais, à ce moment-là."
+      }
     },
     {
       "id": "devalorisation_globale",
@@ -348,7 +453,14 @@
         "honte de moi",
         "je suis un monstre",
         "je suis une personne horrible"
-      ]
+      ],
+      "explication": {
+        "quoi": "D'un acte ou d'un moment précis, tu tires une conclusion sur toute ta valeur en tant que personne.",
+        "cerveau": "Quand on se sent honteux ou triste, le cerveau rappelle surtout les souvenirs négatifs sur soi, ce qui semble confirmer le jugement.",
+        "corps": "La honte se voit dans le corps : regard baissé, envie de disparaître, énergie qui chute.",
+        "esprit": "On passe de « j'ai fait une erreur » à « je suis quelqu'un de mauvais ». Un comportement devient une identité.",
+        "astuce": "Distingue ce que tu as fait et qui tu es."
+      }
     },
     {
       "id": "rumination_culpabilite",
@@ -366,7 +478,14 @@
         "je ressasse",
         "en boucle",
         "je me punis"
-      ]
+      ],
+      "explication": {
+        "quoi": "Tu ressasses une faute, sans que cela mène à une réparation ou à un changement.",
+        "cerveau": "Le cerveau revient sur ce qui n'est pas « résolu ». Mais ressasser n'est pas résoudre : la boucle tourne sans trouver de sortie.",
+        "corps": "La rumination entretient le stress : fatigue, sommeil perturbé, tension de fond.",
+        "esprit": "On a l'impression que se faire du mal est une façon de payer ou de rester vigilant. En réalité, cela ne répare rien.",
+        "astuce": "Sépare ce que tu peux encore réparer, et ce que tu peux seulement accepter."
+      }
     },
     {
       "id": "double_standard",
@@ -382,7 +501,14 @@
         "je ne me pardonne pas",
         "je me pardonne pas",
         "plus severe avec moi"
-      ]
+      ],
+      "explication": {
+        "quoi": "Tu es bien plus sévère avec toi-même que tu ne le serais avec quelqu'un d'autre pour la même erreur.",
+        "cerveau": "Le cerveau a appris à se surveiller pour éviter le rejet. Cette voix critique intérieure est souvent bien plus dure que celle qu'on adresserait aux autres.",
+        "corps": "Les reproches envers soi entretiennent le stress ; la bienveillance envers soi, au contraire, aide le corps à se calmer.",
+        "esprit": "On croit que se pardonner, c'est se laisser aller. Pourtant, on progresse souvent mieux avec de la compréhension qu'avec des reproches.",
+        "astuce": "Parle-toi comme tu parlerais à un ami dans la même situation."
+      }
     },
     {
       "id": "filtre_mental",
@@ -400,7 +526,14 @@
         "journee pourrie",
         "semaine pourrie",
         "tout est nul"
-      ]
+      ],
+      "explication": {
+        "quoi": "Tu ne retiens que le négatif d'une situation, en laissant de côté tout ce qui pourrait la nuancer.",
+        "cerveau": "Le cerveau remarque et retient davantage le négatif que le positif : c'est le « biais de négativité ». Quand l'humeur est basse, ce filtre devient encore plus fort.",
+        "corps": "La tristesse ralentit : lourdeur, fatigue, envie de rester immobile… ce qui laisse moins d'occasions de vivre des choses agréables.",
+        "esprit": "Une seule chose qui va mal colore toute la journée, comme une goutte d'encre dans un verre d'eau.",
+        "astuce": "Cherche trois choses, même minuscules, qui se sont bien passées aujourd'hui."
+      }
     },
     {
       "id": "disqualification_positif",
@@ -418,7 +551,14 @@
         "ce n est rien",
         "c est rien",
         "ca ne veut rien dire"
-      ]
+      ],
+      "explication": {
+        "quoi": "Tu minimises ou écartes ce qui va bien, comme si ça ne comptait pas.",
+        "cerveau": "Le cerveau protège ce qu'il croit déjà : une information qui ne colle pas avec l'image qu'on a de soi est vite rangée comme une exception.",
+        "corps": "Le plaisir ou la fierté sont à peine ressentis, comme si on ne leur laissait pas le temps de s'installer.",
+        "esprit": "« C'était de la chance », « ça ne compte pas » : l'idée négative reste intacte malgré les preuves du contraire.",
+        "astuce": "Accorde à ce qui va bien autant de poids que tu en accorderais à un échec."
+      }
     },
     {
       "id": "surgeneralisation",
@@ -433,7 +573,14 @@
         "ma vie est",
         "toute ma vie",
         "comme d habitude"
-      ]
+      ],
+      "explication": {
+        "quoi": "Tu étends un moment difficile à toute ta vie, comme si c'était la règle.",
+        "cerveau": "À partir de quelques exemples, le cerveau fabrique une règle générale. Quand on est triste, il va chercher en priorité les exemples qui la confirment.",
+        "corps": "Le découragement fatigue et coupe l'élan, ce qui rend plus difficile de vivre des expériences qui contrediraient cette règle.",
+        "esprit": "« Toujours », « jamais », « ma vie est… » : un moment devient un destin.",
+        "astuce": "Demande-toi si c'est vrai à chaque fois, ou seulement dans certaines situations."
+      }
     },
     {
       "id": "vision_negative_avenir",
@@ -455,7 +602,14 @@
         "a quoi bon",
         "ca sert a rien",
         "pour toujours"
-      ]
+      ],
+      "explication": {
+        "quoi": "Tu prédis que rien ne changera et que l'avenir sera forcément sombre.",
+        "cerveau": "Pour imaginer l'avenir, le cerveau se sert de ce qu'on vit maintenant. Quand on va mal aujourd'hui, il projette ce même état sur demain.",
+        "corps": "La fatigue et le manque d'énergie donnent l'impression que tout effort serait inutile.",
+        "esprit": "Le désespoir se présente comme une certitude, alors que c'est une prédiction, souvent démentie par les changements qu'on a déjà vécus.",
+        "astuce": "Pense à une période difficile de ta vie qui a fini par changer."
+      }
     },
     {
       "id": "comparaison_rumination",
@@ -474,7 +628,14 @@
         "en boucle",
         "sans arret",
         "j y pense tout le temps"
-      ]
+      ],
+      "explication": {
+        "quoi": "Tu te compares à une version idéalisée (des autres, de toi, de ton passé), ou tu ressasses la même pensée sans en tirer rien de nouveau.",
+        "cerveau": "Le cerveau évalue sans cesse où l'on se situe par rapport aux autres. Et quand il tourne « à vide », il revient volontiers sur les mêmes soucis : c'est la rumination.",
+        "corps": "Ressasser maintient le corps dans un stress de fond : fatigue, sommeil léger, tension.",
+        "esprit": "On compare son intérieur (ses doutes) à l'extérieur des autres (ce qu'ils montrent) : la comparaison est truquée d'avance.",
+        "astuce": "Remarque la pensée, nomme-la (« tiens, je compare »), puis ramène ton attention sur quelque chose de concret."
+      }
     },
     {
       "id": "etiquetage_global",
@@ -496,7 +657,14 @@
         "je suis un echec",
         "je suis pathetique",
         "je suis un loser"
-      ]
+      ],
+      "explication": {
+        "quoi": "Tu te colles une étiquette sur toute ta personne (« je suis nul ») à partir d'un comportement précis.",
+        "cerveau": "Une étiquette est un raccourci : le cerveau l'adopte vite, puis remarque surtout ce qui la confirme.",
+        "corps": "Se traiter de « nul » fait le même effet qu'une critique venue de quelqu'un d'autre : honte, tension, envie de se cacher.",
+        "esprit": "« J'ai raté » devient « je suis un raté ». Un fait devient une identité.",
+        "astuce": "Décris ce qui s'est passé avec des faits, sans adjectif sur toi."
+      }
     },
     {
       "id": "perfectionnisme",
@@ -515,7 +683,14 @@
         "completement rate",
         "irreprochable",
         "la moindre erreur"
-      ]
+      ],
+      "explication": {
+        "quoi": "Tu juges en réussite totale ou échec total, avec des standards si élevés qu'ils sont presque impossibles à tenir.",
+        "cerveau": "Le cerveau a appris qu'être irréprochable protégeait de la critique ou du rejet. Il continue d'appliquer cette stratégie, même quand elle épuise.",
+        "corps": "Pression constante, difficulté à se reposer, tension avant chaque tâche.",
+        "esprit": "Tout ce qui n'est pas parfait est vécu comme un échec : il n'y a jamais de « suffisamment bien ».",
+        "astuce": "Demande-toi à quoi ressemblerait un résultat « suffisamment bon » ici."
+      }
     },
     {
       "id": "estime_conditionnelle",
@@ -536,7 +711,14 @@
         "s ils me rejettent",
         "s ils ne m apprecient pas",
         "ma valeur"
-      ]
+      ],
+      "explication": {
+        "quoi": "Tu fais dépendre toute ta valeur d'un résultat ou de l'approbation des autres.",
+        "cerveau": "Nous sommes des êtres sociaux : être accepté par le groupe a longtemps été vital. Le cerveau surveille donc l'approbation des autres comme une question de sécurité.",
+        "corps": "Chaque évaluation devient un enjeu : trac, tension, puis soulagement… ou effondrement selon le résultat.",
+        "esprit": "Si ta valeur dépend du résultat, chaque échec menace toute ta personne.",
+        "astuce": "Liste ce qui, en toi, a de la valeur indépendamment de tes performances."
+      }
     }
   ],
   "questions": [
@@ -2021,27 +2203,27 @@
   "verification": {
     "anxiete": [
       "Est-ce que cette nouvelle pensée tient compte des faits, ou est-ce que je me raconte une histoire trop rassurante pour être crédible ?",
-      "Si je devais y croire à 100 %, à combien j'y crois réellement là, maintenant ?",
+      "Au fond de moi, est-ce que j'y crois vraiment, ou est-ce que je me force à y croire ?",
       "Est-ce que cette pensée m'aiderait à agir, ou reste-t-elle juste une phrase que je me dis sans y croire ?"
     ],
     "colere": [
       "Est-ce que cette nouvelle pensée me permet d'agir de façon alignée avec ce qui compte pour moi ?",
-      "À combien j'y crois réellement, de 0 à 100 % ?",
+      "Au fond de moi, est-ce que j'y crois vraiment, ou est-ce que je me force à y croire ?",
       "Si je dois encore exprimer quelque chose à quelqu'un, quelle serait la façon la plus utile de le dire, une fois calmé ?"
     ],
     "culpabilite": [
       "Est-ce que cette nouvelle pensée reconnaît ma part réelle de responsabilité, sans l'exagérer ni la nier complètement ?",
-      "À combien j'y crois réellement, de 0 à 100 % ?",
+      "Au fond de moi, est-ce que j'y crois vraiment, ou est-ce que je me force à y croire ?",
       "Cette pensée m'aide-t-elle à réparer ou avancer, ou reste-t-elle une phrase que je me dis sans y croire ?"
     ],
     "tristesse": [
       "Est-ce que cette nouvelle pensée tient compte de l'ensemble de la situation, pas seulement du côté positif forcé ?",
-      "À combien j'y crois réellement, de 0 à 100 % ?",
+      "Au fond de moi, est-ce que j'y crois vraiment, ou est-ce que je me force à y croire ?",
       "Qu'est-ce que cette pensée me permettrait de faire, même une toute petite chose, dans les prochaines heures ?"
     ],
     "estime": [
       "Est-ce que cette nouvelle pensée reconnaît mes limites réelles, sans les nier ni les exagérer ?",
-      "À combien j'y crois réellement, de 0 à 100 % ?",
+      "Au fond de moi, est-ce que j'y crois vraiment, ou est-ce que je me force à y croire ?",
       "Cette pensée m'aide-t-elle à continuer d'avancer, ou reste-t-elle une phrase que je me dis sans y croire ?"
     ]
   },
