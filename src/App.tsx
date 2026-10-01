@@ -143,6 +143,10 @@ export function App() {
         <Journal
           sessions={sessions}
           onOuvrir={(id) => setVue({ nom: 'detail', id })}
+          onSupprimer={async (ids) => {
+            for (const id of ids) await supprimerSession(id);
+            await rafraichir();
+          }}
           onRetour={() => setVue({ nom: 'accueil' })}
           onSos={ouvrirSos}
         />
@@ -209,6 +213,11 @@ export function App() {
           if (!brouillon) return;
           setCourante(brouillon);
           setVue({ nom: 'session' });
+        }}
+        onSupprimerBrouillon={async () => {
+          if (!brouillon) return;
+          await supprimerSession(brouillon.id);
+          await rafraichir();
         }}
         onJournal={() => setVue({ nom: 'journal' })}
         onReglages={() => setVue({ nom: 'reglages' })}

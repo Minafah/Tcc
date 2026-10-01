@@ -55,6 +55,8 @@ export function SessionGuidee(props: PropsSession) {
       return <EtapePensee {...commun} />;
     case 'apaisement':
       return <EtapeApaisement {...commun} />;
+    case 'comprendre':
+      return <EtapeComprendre {...commun} />;
     case 'questions':
       return <EtapeQuestions {...commun} />;
     case 'alternative':
@@ -177,7 +179,7 @@ function EtapePensee({ session, maj, allerA, onSos, avancerSiSansCrise }: PropsE
       setChoix(selection.distorsion);
     }
     setCalcul(false);
-    const etape = session.emotion.intensiteAvant >= SEUIL_APAISEMENT ? 'apaisement' : 'questions';
+    const etape = session.emotion.intensiteAvant >= SEUIL_APAISEMENT ? 'apaisement' : 'comprendre';
     allerA(etape, { questionIds, reponses, pensee, indexQuestion: 0 });
   };
 
@@ -258,11 +260,80 @@ function EtapeApaisement({ allerA, onSos }: PropsEtape) {
         <Respiration />
       </div>
       <div className="actions">
-        <button className="bouton discret" onClick={() => allerA('questions')}>
+        <button className="bouton discret" onClick={() => allerA('comprendre')}>
           Passer
         </button>
-        <button className="bouton" onClick={() => allerA('questions')}>
+        <button className="bouton" onClick={() => allerA('comprendre')}>
           Je suis prêt·e
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// --- Étape intermédiaire : comprendre le piège de pensée choisi ---
+
+function EtapeComprendre({ session, allerA, onSos }: PropsEtape) {
+  const d = distorsion(session.pensee.distorsions[0]);
+  const e = d?.explication;
+  if (!d || !e) {
+    // Pas de fiche pour ce piège (contenu personnalisé) : simple passage vers les questions.
+    return (
+      <div className="page">
+        <Entete titre="Comprendre ce piège" onRetour={() => allerA('pensee')} onSos={onSos} />
+        <div className="contenu">
+          <p>{d ? `${d.libelle} : ${d.definition}` : 'Passons aux questions.'}</p>
+        </div>
+        <div className="actions">
+          <button className="bouton" onClick={() => allerA('questions')}>
+            Je continue
+          </button>
+        </div>
+      </div>
+    );
+  }
+  const blocs = [
+    { emoji: '🧠', titre: 'Dans le cerveau', texte: e.cerveau },
+    { emoji: '💓', titre: 'Dans le corps', texte: e.corps },
+    { emoji: '💭', titre: "Dans l'esprit", texte: e.esprit },
+  ];
+  return (
+    <div className="page">
+      <Entete titre="Comprendre ce piège" onRetour={() => allerA('pensee')} onSos={onSos} />
+      <Progression valeur={2} max={5} />
+      <div className="contenu">
+        <div>
+          <p className="doux petit">Le piège de pensée repéré</p>
+          <h2>{d.libelle}</h2>
+        </div>
+        <p>{e.quoi}</p>
+        <p className="doux">Par exemple : {d.exemple}</p>
+
+        {blocs.map((b) => (
+          <div key={b.titre} className="carte fiche">
+            <h3>
+              <span aria-hidden="true">{b.emoji}</span> {b.titre}
+            </h3>
+            <p>{b.texte}</p>
+          </div>
+        ))}
+
+        <div className="encart">
+          <p>
+            <strong>💡 Ce qui peut aider :</strong> {e.astuce}
+          </p>
+        </div>
+        <p className="doux petit">
+          Ce piège est un mécanisme très humain : tout le monde y tombe. Le repérer, c'est déjà commencer à prendre du
+          recul. Les questions qui suivent vont t'aider à le démonter, pas à pas.
+        </p>
+      </div>
+      <div className="actions">
+        <button className="bouton discret" onClick={() => allerA('pensee')}>
+          Changer de piège
+        </button>
+        <button className="bouton" onClick={() => allerA('questions')}>
+          Je continue
         </button>
       </div>
     </div>
@@ -299,7 +370,7 @@ function EtapeQuestions({ session, maj, allerA, onSos, avancerSiSansCrise }: Pro
 
   const aller = (index: number, reponses = session.reponses) => {
     window.scrollTo(0, 0);
-    if (index < 0) return allerA('pensee', { reponses });
+    if (index < 0) return allerA('comprendre', { reponses });
     if (index >= total) return allerA('alternative', { reponses, indexQuestion: total - 1 });
     maj({ indexQuestion: index, reponses });
   };

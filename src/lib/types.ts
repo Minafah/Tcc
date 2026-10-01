@@ -20,6 +20,14 @@ export interface Distorsion {
   exemple: string;
   /** Mots-clés (normalisés) qui suggèrent cette distorsion dans la pensée. */
   signaux: string[];
+  /** Fiche « Comprendre ce piège » : ce que c'est, et ce qui se passe dans le cerveau, le corps et l'esprit. */
+  explication?: {
+    quoi: string;
+    cerveau: string;
+    corps: string;
+    esprit: string;
+    astuce: string;
+  };
 }
 
 export interface Problematique {
@@ -37,7 +45,7 @@ export interface Reponse {
   passee: boolean;
 }
 
-export type Etape = 'situation' | 'pensee' | 'apaisement' | 'questions' | 'alternative' | 'bilan';
+export type Etape = 'situation' | 'pensee' | 'apaisement' | 'comprendre' | 'questions' | 'alternative' | 'bilan';
 
 export interface Session {
   id: string;

@@ -518,3 +518,16 @@ details summary {
   background: transparent;
   min-width: 3ch;
 }
+
+/* Fiche « Comprendre ce piège » */
+.fiche h3 {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Journal : session sélectionnée pour suppression */
+.carte.selectionnee {
+  border-color: var(--sos);
+  background: var(--sos-doux);
+}
